@@ -1,0 +1,23 @@
+<div class="p-grid p-mt-3 p-p-5.">
+  <div class="p-col-2">
+    <app-filter-panel></app-filter-panel>
+  </div>
+
+  <div class="p-col-10 p-p-5">
+
+    <div *ngFor="let product of products" class="p-d-inline-flex">
+
+      <p-card [header]="product.title" [subheader]="product.product_code" [style]="{width: '280px'}" class="p-mr-3 p-mb-3"
+        styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+          <img alt="product.description" [src]="searchImage(product.file_name)" >
+        </ng-template>
+        <p> {{ product.description }}
+        </p>
+        <ng-template pTemplate="footer">
+          <p-button label="Comprar" icon="pi pi-shopping-cart"></p-button>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+</div>
