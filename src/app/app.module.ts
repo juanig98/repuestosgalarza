@@ -11,6 +11,7 @@ import { registerLocaleData } from '@angular/common';
 import { ProductsComponent } from './components/products/products.component';
 registerLocaleData(localeEsAr, "es-AR");
 const angularModules = [AppRoutingModule, BrowserModule, HttpClientModule, BrowserAnimationsModule,]
+
 // Modules ng-prime
 import { TabMenuModule } from 'primeng/tabmenu';
 import { MessageModule } from 'primeng/message';
@@ -18,7 +19,9 @@ import { ButtonModule } from 'primeng/button';
 import { PanelModule } from 'primeng/panel';
 import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
-const primeNgModules = [TabMenuModule, ButtonModule, MessageModule, PanelModule, CardModule, DividerModule,]
+import { SlideMenuModule } from 'primeng/slidemenu';
+import { CarouselModule } from 'primeng/carousel';
+const primeNgModules = [TabMenuModule, ButtonModule, MessageModule, PanelModule, CardModule, DividerModule, SlideMenuModule, CarouselModule,]
 
 // Components
 import { AppRoutingModule } from './app-routing.module';

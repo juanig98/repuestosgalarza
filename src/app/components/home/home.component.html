@@ -1,1 +1,29 @@
-<p>Home its work</p>
+<p-carousel [value]="banners" [autoplayInterval]="4500" [circular]="true" [showNavigators]="false"
+  [showIndicators]="false">
+  <ng-template let-item pTemplate="item">
+    <div class="cont-banner-image">
+      <img [src]="searchImage(item)" [alt]="alt" class="banner-image" srcset="">
+    </div>
+  </ng-template>
+</p-carousel>
+
+<div class="p-text-center">
+  <div *ngFor="let card of cards" class="p-d-inline-flex p-flex-md-row p-flex-sm-row p-my-5">
+    <p-card class="card">
+      <div class="p-text-center">
+        <img [src]="searchCard(card)" width="70" height="80" alt="">
+      </div>
+      <h3>{{ card.title }}</h3>
+      <p>{{ card.description}}</p>
+    </p-card>
+  </div>
+</div>
+
+<div class="p-mt-5">
+  <p-carousel [value]="logos" [numVisible]="5" [numScroll]="1" [autoplayInterval]="1500" [circular]="true"
+    [showNavigators]="false" [showIndicators]="false">
+    <ng-template let-item pTemplate="item">
+      <img [src]="searchLogo(item)" height="150" width="250" alt="" />
+    </ng-template>
+  </p-carousel>
+</div>

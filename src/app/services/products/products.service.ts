@@ -10,17 +10,17 @@ import { Product } from 'src/app/models/Product';
 })
 export class ProductsService {
 
-  ruta = route_api + 'products'
+  route = route_api + 'products'
 
   constructor(
     private http: HttpClient,
   ) { }
 
   public getProduct(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.ruta}/${id}`, { headers: { 'Accept': 'application/json' } });
+    return this.http.get<Product>(`${this.route}/${id}`, { headers: { 'Accept': 'application/json' } });
   }
   public getAllProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.ruta, { headers: { 'Accept': 'application/json' } });
+    return this.http.get<Product[]>(this.route, { headers: { 'Accept': 'application/json' } });
   }
 
 }

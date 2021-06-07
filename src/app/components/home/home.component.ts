@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BannersService } from 'src/app/services/banners/banners.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  banners = [];
+  logos = ["toyota", "hyundai", "kia", "chevrolet", "honda", "landrover", "nissan", "ford", "subaru", "lexus", "audi", "bmw"];
+  cards = [
+    { title: "Calidad", description: "Productos de calidad y durabilidad.", image: "calidad" },
+    { title: "Envíos", description: "Realizamos envíos a todo el país.", image: "envio" },
+    { title: "Experiencia", description: "Años de experiencia en el rubro.", image: "experiencia" },
+    { title: "Atención", description: "Contamos con personal capacitado y motivado.", image: "atencion" }
+  ]
+
+  alt = "Repuestos - Galarza - Repuestos importados"
+
+  constructor(
+    private bannersService: BannersService,
+  ) { }
 
   ngOnInit(): void {
+    this.bannersService.getAll().subscribe(
+      response => {
+        this.banners = response;
+      },
+      error => { }
+    )
   }
 
+  public searchImage(item) {
+    if (item.image == null) return `https://repuestosgalarza.local/storage/images/no_image.png`
+    return `https://repuestosgalarza.local/storage/images/${item.image}`
+  }
+
+  public searchLogo(item) {
+    return `https://repuestosgalarza.local/storage/images/logos/${item}_sf.png`
+  }
+
+  public searchCard(card) {
+    return `https://repuestosgalarza.local/storage/images/icons/${card.image}.png`
+
+  }
 }

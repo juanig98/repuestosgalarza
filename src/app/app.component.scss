@@ -3,3 +3,59 @@
   background-color: #26af3b;
   padding: 0.5px;
 }
+
+.display-mobile {
+  display: none;
+  visibility: hidden;
+}
+
+.logo-img {
+  max-width: 320px;
+}
+
+.btn-bars {
+  background: #442774;
+  color: #ffffff;
+  border-color: #442774;
+}
+
+.btn-bars:enabled:hover {
+  background: #442774;
+  color: #ffffff;
+  border-color: #442774;
+}
+
+.btn-bars:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #e4322d;
+}
+@media screen and (max-width: 768px) {
+  .logo-img {
+    width: 100%;
+  }
+
+  .display-mobile {
+    visibility: visible;
+    display: block;
+  }
+  .display-web {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+
+
+.p-menuitem-link .p-ripple .ng-star-inserted .p-menuitem-link-active {
+  background: #ffffff !important;
+  color: #442774 !important;
+  border-color: #442774 !important;
+}
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+  background: #ffffff !important;
+  color: #442774 !important;
+  border-color: #442774 !important;
+}
+.menu {
+}
