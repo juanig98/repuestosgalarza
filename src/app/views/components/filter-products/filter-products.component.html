@@ -2,8 +2,7 @@
 
   <div class="p-fluid">
     <div class="p-field">
-      <label for="searchProduct">Producto</label>
-      <input id="searchProduct" type="text" pInputText>
+      <input id="searchProduct" type="text" placeholder="Buscar repuesto..." pInputText  (input)="onSearchChange($event.target.value)">
     </div>
   </div>
 

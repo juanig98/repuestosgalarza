@@ -3,11 +3,11 @@
   <div class="p-d-flex p-flex-column p-flex-md-row">
 
     <div class="">
-      <app-filter-products></app-filter-products>
+      <app-filter-products (productsFiltered)="filterProducts($event)" [products]="products" [filterable_products]="filterable_products"></app-filter-products>
     </div>
 
     <div class="p-p-3">
-        <app-card-product [product]="product" *ngFor="let product of products"></app-card-product>
+        <app-card-product [product]="product" *ngFor="let product of filterable_products"></app-card-product>
     </div>
   </div>
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductCard } from 'src/app/models/ProductCard';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { route_server } from 'src/config/routes';
-import { FilterProductsComponent } from '../../components/filter-products/filter-products.component';
+import { FilterEmit, FilterProductsComponent } from '../../components/filter-products/filter-products.component';
 
 @Component({
   selector: 'app-products',
@@ -10,7 +11,8 @@ import { FilterProductsComponent } from '../../components/filter-products/filter
 })
 export class ProductsComponent implements OnInit {
 
-  products = [];
+  products: ProductCard[];
+  filterable_products: ProductCard[];
 
   constructor(
     private productsService: ProductsService,
@@ -21,10 +23,15 @@ export class ProductsComponent implements OnInit {
     this.productsService.getAllProducts().subscribe(
       response => {
         this.products = response;
+        this.filterable_products = response
       },
       error => {
       }
     )
+  }
+
+  public filterProducts(productsFiltered: ProductCard[]) {
+    this.filterable_products = productsFiltered;
   }
 
 }

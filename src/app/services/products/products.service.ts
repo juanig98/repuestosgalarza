@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { route_api } from 'src/config/routes';
 import { Product } from 'src/app/models/Product';
+import { ProductCard } from 'src/app/models/ProductCard';
 
 
 @Injectable({
@@ -16,11 +17,11 @@ export class ProductsService {
     private http: HttpClient,
   ) { }
 
-  public getProduct(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.route}/${id}`, { headers: { 'Accept': 'application/json' } });
+  public getProduct(id: number): Observable<ProductCard> {
+    return this.http.get<ProductCard>(`${this.route}/${id}`, { headers: { 'Accept': 'application/json' } });
   }
-  public getAllProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.route, { headers: { 'Accept': 'application/json' } });
+  public getAllProducts(): Observable<ProductCard[]> {
+    return this.http.get<ProductCard[]>(this.route, { headers: { 'Accept': 'application/json' } });
   }
 
 }
