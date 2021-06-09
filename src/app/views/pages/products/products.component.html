@@ -1,0 +1,14 @@
+<div class="p-p-5 p-mt-1">
+
+  <div class="p-d-flex p-flex-column p-flex-md-row">
+
+    <div class="">
+      <app-filter-products></app-filter-products>
+    </div>
+
+    <div class="p-p-3">
+        <app-card-product [product]="product" *ngFor="let product of products"></app-card-product>
+    </div>
+  </div>
+
+</div>

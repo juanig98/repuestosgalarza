@@ -1,16 +1,15 @@
 // Angular
 import { LOCALE_ID, NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 
 // Locale
 import localeEsAr from "@angular/common/locales/es-AR";
 import { registerLocaleData } from '@angular/common';
-import { ProductsComponent } from './components/products/products.component';
 registerLocaleData(localeEsAr, "es-AR");
-const angularModules = [AppRoutingModule, BrowserModule, HttpClientModule, BrowserAnimationsModule,]
+const angularModules = [FormsModule, AppRoutingModule, BrowserModule, HttpClientModule, BrowserAnimationsModule,]
 
 // Modules ng-prime
 import { TabMenuModule } from 'primeng/tabmenu';
@@ -21,23 +20,36 @@ import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
 import { SlideMenuModule } from 'primeng/slidemenu';
 import { CarouselModule } from 'primeng/carousel';
-const primeNgModules = [TabMenuModule, ButtonModule, MessageModule, PanelModule, CardModule, DividerModule, SlideMenuModule, CarouselModule,]
+import { InputTextModule } from 'primeng/inputtext';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { TabViewModule } from 'primeng/tabview';
 
-// Components
+const primeNgModules = [
+  InputTextModule, CheckboxModule, RadioButtonModule, DropdownModule, InputTextareaModule, TabViewModule,
+  TabMenuModule, ButtonModule, MessageModule, PanelModule, CardModule, DividerModule, SlideMenuModule,
+  CarouselModule,]
+
+// Views
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { AboutComponent } from './components/about/about.component';
-import { FilterPanelComponent } from './components/products/filter-panel/filter-panel.component';
+
+// Pages
+import { HomeComponent } from './views/pages/home/home.component';
+import { ProductsComponent } from './views/pages/products/products.component';
+import { AboutComponent } from './views/pages/about/about.component';
+
+// Components
+import { FilterProductsComponent } from './views/components/filter-products/filter-products.component';
+import { CardProductComponent } from './views/components/card-product/card-product.component';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    AboutComponent,
-    ProductsComponent,
-    FilterPanelComponent
+    AppComponent, HomeComponent, AboutComponent, ProductsComponent, FilterProductsComponent, CardProductComponent
   ],
   imports: [
     ...angularModules,
