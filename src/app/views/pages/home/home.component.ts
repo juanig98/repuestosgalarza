@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BannersService } from 'src/app/services/banners/banners.service';
+import { BannerService } from 'src/app/services/banner/banner.service';
 
 @Component({
   selector: 'app-home',
@@ -20,11 +20,11 @@ export class HomeComponent implements OnInit {
   alt = "Repuestos - Galarza - Repuestos importados"
 
   constructor(
-    private bannersService: BannersService,
+    private bannerService: BannerService,
   ) { }
 
   ngOnInit(): void {
-    this.bannersService.getAll().subscribe(
+    this.bannerService.getAll().subscribe(
       response => {
         this.banners = response;
       },

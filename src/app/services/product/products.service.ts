@@ -9,7 +9,7 @@ import { ProductCard } from 'src/app/models/ProductCard';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService {
+export class ProductService {
 
   route = route_api + 'products'
 

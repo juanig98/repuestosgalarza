@@ -1,6 +1,16 @@
-body{
+@import "assets/scss/text.scss";
+@import "assets/scss/border.scss";
+@import "assets/scss/colors.scss";
+@import "assets/scss/fonts.scss";
+
+body {
   padding: 0;
   margin: 0;
+  background-color: $primary-color;
+  font-family: RobotoSlab-Regular, serif;
 }
 
-@import "assets/scss/text.scss";
+::ng-deep .p-button {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}

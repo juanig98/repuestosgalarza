@@ -1,0 +1,26 @@
+<div class="navbar p-d-flex p-flex-column p-flex-md-row p-py-3 p-px-4">
+
+  <div class="p-text-center">
+    <img src="assets/images/logo_home.png" class="logo-img" alt="">
+  </div>
+
+  <div class="menu-container">
+
+    <div class="menu display-web">
+      <p-tabMenu class="menu-web color-primary" [model]="items" [activeItem]="activeItem"></p-tabMenu>
+    </div>
+
+    <div class="display-mobile p-text-center p-mt-5">
+      <button #btn type="button" pButton icon="pi pi-bars" class="btn-bars" (click)="menu.toggle($event)"></button>
+      <p-slideMenu #menu [model]="items" [popup]="true" [viewportHeight]="items.length * 53"></p-slideMenu>
+    </div>
+  </div>
+
+  <div class="display-web p-text-center">
+    <button pButton type="button" class="p-mr-1 p-button-rounded whatsapp">
+      <img src="../assets/images/icons/whatsapp.png"></button>
+    <button pButton type="button" icon="pi pi-check" class="p-mr-1 p-button-rounded cscss"></button>
+    <button pButton type="button" icon="pi pi-check" class="p-mr-1 p-button-rounded cscss"></button>
+  </div>
+
+</div>

@@ -6,7 +6,7 @@ import { route_api } from 'src/config/routes';
 @Injectable({
   providedIn: 'root'
 })
-export class BannersService {
+export class BannerService {
 
   route = route_api + 'banners'
 

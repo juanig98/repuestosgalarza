@@ -1,0 +1,78 @@
+@import 'src/styles.scss';
+
+.navbar {
+  background-color: white;
+}
+
+.whatsapp {
+  border-color: #26af3b;
+  background-color: #26af3b;
+  padding: 0.5px;
+}
+
+.display-mobile {
+  display: none;
+  visibility: hidden;
+}
+
+.logo-img {
+  max-width: 320px;
+}
+
+.btn-bars {
+  background: $primary-color;
+  color: #ffffff;
+  border-color: $primary-color;
+}
+
+.btn-bars:enabled:hover {
+  background: $primary-color;
+  color: #ffffff;
+  border-color: $primary-color;
+}
+
+.btn-bars:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #e4322d;
+}
+
+.p-slidemenu .p-slidemenu-overlay {
+  left: 0 !important;
+}
+
+::ng-deep.ng-trigger.ng-trigger-overlayAnimation.ng-tns-c62-0.p-slidemenu.p-component.p-slidemenu-overlay.ng-star-inserted {
+  left: 20% !important;
+}
+
+.menu-container {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media screen and (max-width: 768px) {
+  ::ng-deep .p-slidemenu {
+    width: 60% !important;
+  }
+
+  .logo-img {
+    width: 100%;
+  }
+  .menu-container {
+    width: 100%;
+  }
+  .btn-bars {
+    width: 40%;
+  }
+
+
+  .display-mobile {
+    visibility: visible;
+    display: block;
+  }
+  .display-web {
+    display: none;
+    visibility: hidden;
+  }
+}
+

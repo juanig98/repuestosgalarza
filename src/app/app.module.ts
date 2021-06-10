@@ -26,11 +26,13 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TabViewModule } from 'primeng/tabview';
+import { ListboxModule } from 'primeng/listbox';
 
 const primeNgModules = [
+  ListboxModule, CarouselModule,
   InputTextModule, CheckboxModule, RadioButtonModule, DropdownModule, InputTextareaModule, TabViewModule,
   TabMenuModule, ButtonModule, MessageModule, PanelModule, CardModule, DividerModule, SlideMenuModule,
-  CarouselModule,]
+]
 
 // Views
 import { AppRoutingModule } from './app-routing.module';
@@ -44,12 +46,14 @@ import { AboutComponent } from './views/pages/about/about.component';
 // Components
 import { FilterProductsComponent } from './views/components/filter-products/filter-products.component';
 import { CardProductComponent } from './views/components/card-product/card-product.component';
+import { NavbarComponent } from './views/components/navbar/navbar.component';
+import { FooterComponent } from './views/components/footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, AboutComponent, ProductsComponent, FilterProductsComponent, CardProductComponent
+    AppComponent, HomeComponent, AboutComponent, ProductsComponent, FilterProductsComponent, CardProductComponent, NavbarComponent, FooterComponent
   ],
   imports: [
     ...angularModules,

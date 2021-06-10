@@ -2,7 +2,20 @@
 
   <div class="p-fluid">
     <div class="p-field">
-      <input id="searchProduct" type="text" placeholder="Buscar repuesto..." pInputText  (input)="onSearchChange($event.target.value)">
+      <input id="searchProduct" type="text" placeholder="Buscar..." pInputText
+        (input)="onSearchChange($event.target.value)">
+    </div>
+  </div>
+  <div class="p-fluid">
+    <h3 class="title-filter">Categorías</h3>
+    <p-listbox [options]="categories" [(ngModel)]="categorySelected" optionLabel="name"
+      [listStyle]="{'max-height':'250px'}" (onClick)="onCategoryChange()"></p-listbox>
+    <div class="p-d-flex" *ngIf="categorySelected">
+      <div></div>
+      <div class="p-ml-auto p-mt-1">
+        <button pButton type="button" icon="pi pi-trash" class="p-button-raised p-button-rounded"
+          (click)="deleteFilterCategory()"> </button>
+      </div>
     </div>
   </div>
 

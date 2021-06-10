@@ -4,5 +4,16 @@
   height: 100%;
   padding: 5%;
   min-width: 300px;
-  min-height: 200px;
+  min-height: 80vh;
+}
+
+@media screen and (max-width: 768px) {
+  .logo-img {
+    width: 100%;
+  }
+}
+.title-filter {
+  margin: 3px 0;
+  color: white;
+  letter-spacing: 1px;
 }
