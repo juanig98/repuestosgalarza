@@ -47,28 +47,31 @@ export class FilterProductsComponent implements OnInit {
   }
 
   public onBrandSelected() {
+    this.vehicleModelSelected = null;
     this.filter()
   }
 
   public filter() {
     let filtered_products = this.products;
 
-    if (this.vehicleModelSelected) {
-      filtered_products = filtered_products.filter(p => p.vehicle_model_id == this.vehicleModelSelected.id)
-    }
-
     if (this.vehicleBrandSelected) {
       // Filtro los productos con esa marca
       let product_with_that_brand = this.products.filter(p => p.vehicle_brand_id == this.vehicleBrandSelected.id);
       this.filterable_vehicle_models = [];
 
-      product_with_that_brand.forEach(p => {
-        this.filterable_vehicle_models.push(new VehicleModel(p.vehicle_model_id, p.vehicle_model_name));
+      product_with_that_brand.map(p => {
+        let add = true;
+        let vehicle_model = new VehicleModel(p.vehicle_model_id, p.vehicle_model_name)
+        this.filterable_vehicle_models.map(a => { if (a.id == vehicle_model.id) add = false })
+        if (add) this.filterable_vehicle_models.push(vehicle_model)
       });
 
       filtered_products = filtered_products.filter(p => p.vehicle_brand_id == this.vehicleBrandSelected.id)
     }
 
+    if (this.vehicleModelSelected) {
+      filtered_products = filtered_products.filter(p => p.vehicle_model_id == this.vehicleModelSelected.id)
+    }
     if (this.categorySelected)
       filtered_products = filtered_products.filter(p => p.category_id == this.categorySelected.id)
     if (this.search.length > 0)

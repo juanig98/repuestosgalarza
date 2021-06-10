@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   }
 
   public searchLogo(item) {
-    return `https://repuestosgalarza.local/storage/images/logos/${item}_sf.png`
+    return `../../../../assets/images/logos/${item}.png`
   }
 
   public searchCard(card) {

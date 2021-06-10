@@ -7,11 +7,12 @@
     </ng-template>
 
     <ng-template pTemplate="body">
-        <p> {{ product.description }} </p>
+      <p> {{ product.description }} </p>
     </ng-template>
 
     <ng-template pTemplate="footer">
-      <p-button label="Comprar" class="bg-primary-color" icon="pi pi-shopping-cart"></p-button>
+      <button (click)="queryProduct(product)" class="bg-primary text-white rounded-lg"> <i
+          class="pi pi-shopping-cart p-mr-1"></i> Comprar</button>
     </ng-template>
 
   </p-card>

@@ -4,6 +4,9 @@ $primary-color-light: #38479d;
 .bg-primary {
   background-color: $primary-color;
 }
+.bg-primary:hover {
+  background-color: $primary-color-light;
+}
 
 .bg-primary-light {
   background-color: $primary-color-light;
@@ -19,4 +22,7 @@ $primary-color-light: #38479d;
 
 .bg-white {
   background-color: white;
+}
+.text-white {
+  color: white;
 }

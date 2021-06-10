@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCard } from 'src/app/models/ProductCard';
 import { ProductService } from 'src/app/services/product/products.service';
-import { route_server } from 'src/app/config/routes';
 import { Category } from 'src/app/models/Category';
 import { VehicleBrand } from 'src/app/models/VehicleBrands';
 import { VehicleModel } from 'src/app/models/VehicleModel';
@@ -27,12 +26,32 @@ export class ProductsComponent implements OnInit {
 
     this.productService.getAllProducts().subscribe(
       response => {
+
         this.products = response;
         this.filterable_products = response
+
         this.categories = [], this.vehicle_brands = [], this.vehicle_models = [];
-        this.products.map(p => { this.categories.push(new Category(p.category_id, p.category_name)) });
-        this.products.map(p => { this.vehicle_brands.push(new VehicleBrand(p.vehicle_brand_id, p.vehicle_brand_name)) });
-        this.products.map(p => { this.vehicle_models.push(new VehicleModel(p.vehicle_model_id, p.vehicle_model_name)) });
+
+        this.products.map(p => {
+          let add = true;
+          let category = new Category(p.category_id, p.category_name);
+          this.categories.map(a => { if (a.id == category.id) add = false })
+          if (add) this.categories.push(category)
+        });
+
+        this.products.map(p => {
+          let add = true;
+          let vehicle_brand = new VehicleBrand(p.vehicle_brand_id, p.vehicle_brand_name)
+          this.vehicle_brands.map(a => { if (a.id == vehicle_brand.id) add = false })
+          if (add) this.vehicle_brands.push(vehicle_brand)
+        });
+
+        this.products.map(p => {
+          let add = true;
+          let vehicle_model = new VehicleModel(p.vehicle_model_id, p.vehicle_model_name)
+          this.vehicle_models.map(a => { if (a.id == vehicle_model.id) add = false })
+          if (add) this.vehicle_models.push(vehicle_model)
+        });
       },
       error => {
       }

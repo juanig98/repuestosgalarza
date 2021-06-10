@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { route_server } from 'src/app/config/routes';
+import { Product } from 'src/app/models/Product';
+import { ProductCard } from 'src/app/models/ProductCard';
 
 @Component({
   selector: 'app-card-product',
@@ -18,5 +20,8 @@ export class CardProductComponent implements OnInit {
   public searchImage(image: string) {
     let file_name = (image) ? image : "no_image.png";
     return `${route_server}/storage/uploads/products/${file_name}`
+  }
+  public queryProduct(product: ProductCard) {
+    window.open('https://wa.me/543456262300?text=Quisiera%20consultar%20sobre%20la%20oferta%20de%20departamento`')
   }
 }
