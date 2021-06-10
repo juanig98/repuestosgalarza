@@ -11,4 +11,9 @@ export class ProductCard {
   offer_status: boolean;
   price: number;
   quantity: number;
+  category_name: string;
+  vehicle_brand_id: number;
+  vehicle_brand_name: string;
+  vehicle_model_id: number;
+  vehicle_model_name: string;
 }

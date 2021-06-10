@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { route_api } from 'src/config/routes';
+import { route_api } from 'src/app/config/routes';
 import { Product } from 'src/app/models/Product';
 import { ProductCard } from 'src/app/models/ProductCard';
 

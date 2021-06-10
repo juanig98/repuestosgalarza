@@ -2,13 +2,22 @@
   <div class="p-d-flex p-flex-column p-flex-md-row">
 
     <div class="p-shadow-20 rounded-lg bg-primary-light">
-      <app-filter-products (productsFiltered)="filterProducts($event)" [products]="products"
-        [filterable_products]="filterable_products"></app-filter-products>
+      <app-filter-products (productsFiltered)="filterProducts($event)" [filterable_products]="filterable_products"
+        [categories]="categories" [products]="products" [vehicle_brands]="vehicle_brands"
+        [vehicle_models]="vehicle_models">
+      </app-filter-products>
     </div>
 
-    <div class="p-p-3">
+    <div class="p-p-3" *ngIf="filterable_products && filterable_products.length > 0">
       <app-card-product [product]="product" *ngFor="let product of filterable_products"></app-card-product>
+
+
+    </div>
+
+    <div *ngIf="filterable_products && filterable_products.length < 1" class="p-p-3 w-100 mh-100">
+      <div class="p-shadow-4 p-py-3 p-pl-4 bg-white rounded-lg">
+        <h3 class="text-primary">No hay coincidencias</h3>
+      </div>
     </div>
   </div>
-
 </div>

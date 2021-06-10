@@ -1,7 +1,11 @@
+
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { consolelog } from 'src/app/helpers/funtions';
 import { Category } from 'src/app/models/Category';
 import { ProductCard } from 'src/app/models/ProductCard';
 import { CategoryService } from 'src/app/services/category/category.service';
+import { VehicleModel } from 'src/app/models/VehicleModel';
+import { VehicleBrand } from 'src/app/models/VehicleBrands';
 
 
 @Component({
@@ -11,32 +15,59 @@ import { CategoryService } from 'src/app/services/category/category.service';
 })
 export class FilterProductsComponent implements OnInit {
 
-  categories: Category[];
   categorySelected: Category;
+  vehicleBrandSelected: VehicleBrand;
+  vehicleModelSelected: VehicleModel;
   search: string = "";
+
+  filterable_vehicle_models: VehicleModel[];
+  @Input() categories: Category[];
+  @Input() vehicle_brands: VehicleBrand[];
+  @Input() vehicle_models: VehicleModel[];
   @Input() filterable_products: ProductCard[];
   @Input() products: ProductCard[];
   @Output() productsFiltered = new EventEmitter<ProductCard[]>();
 
-  constructor(
-    private categoryService: CategoryService,) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.categoryService.getAllCategories().subscribe(response => { this.categories = response })
+  ngOnInit(): void { }
+
+  private emit() { this.productsFiltered.emit(this.filterable_products); }
+
+  public deleteFilterVehicle() {
+    this.vehicleBrandSelected = null;
+    this.vehicleModelSelected = null;
+    this.filter()
   }
+  public deleteFilterCategory() { this.categorySelected = null; this.filter() }
 
   public onSearchChange(value: string) {
     this.search = value.toLowerCase();
     this.filter();
   }
-  public onCategoryChange() {
-    this.filter();
+
+  public onBrandSelected() {
+    this.filter()
   }
-  public deleteFilterCategory() { this.categorySelected = null; this.filter() }
 
-
-  private filter() {
+  public filter() {
     let filtered_products = this.products;
+
+    if (this.vehicleModelSelected) {
+      filtered_products = filtered_products.filter(p => p.vehicle_model_id == this.vehicleModelSelected.id)
+    }
+
+    if (this.vehicleBrandSelected) {
+      // Filtro los productos con esa marca
+      let product_with_that_brand = this.products.filter(p => p.vehicle_brand_id == this.vehicleBrandSelected.id);
+      this.filterable_vehicle_models = [];
+
+      product_with_that_brand.forEach(p => {
+        this.filterable_vehicle_models.push(new VehicleModel(p.vehicle_model_id, p.vehicle_model_name));
+      });
+
+      filtered_products = filtered_products.filter(p => p.vehicle_brand_id == this.vehicleBrandSelected.id)
+    }
 
     if (this.categorySelected)
       filtered_products = filtered_products.filter(p => p.category_id == this.categorySelected.id)
@@ -45,19 +76,5 @@ export class FilterProductsComponent implements OnInit {
 
     this.filterable_products = filtered_products;
     this.emit()
-  }
-
-  private emit() {
-
-    this.productsFiltered.emit(this.filterable_products);
-  }
-}
-
-export class FilterEmit {
-  filter: string;
-  value: string;
-  constructor(filter, value) {
-    this.filter = filter;
-    this.value = value;
   }
 }

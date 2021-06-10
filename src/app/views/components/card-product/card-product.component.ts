@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { route_server } from 'src/config/routes';
+import { route_server } from 'src/app/config/routes';
 
 @Component({
   selector: 'app-card-product',

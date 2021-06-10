@@ -78,3 +78,11 @@
   }
 }
 
+::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+  border-color: $primary-color;
+  color: $primary-color
+}
+::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link :focus {
+  border-color: $primary-color;
+  color: $primary-color
+}

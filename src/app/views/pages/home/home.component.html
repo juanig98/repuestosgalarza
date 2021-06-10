@@ -2,19 +2,19 @@
   [showIndicators]="false">
   <ng-template let-item pTemplate="item">
     <div class="cont-banner-image">
-      <img [src]="searchImage(item)" [alt]="alt" class="banner-image" srcset="">
+      <img [src]="searchImage(item)" [alt]="alt" class="banner-image">
     </div>
   </ng-template>
 </p-carousel>
 
 <div class="p-text-center">
-  <div *ngFor="let card of cards" class="p-d-inline-flex p-flex-md-row p-flex-sm-row p-my-5">
+  <div *ngFor="let card of cards" class="p-d-inline-flex p-flex-lg-row p-flex-md-row p-flex-sm-row p-my-5">
     <p-card class="card">
       <div class="p-text-center">
-        <img [src]="searchCard(card)" width="70" height="80" alt="">
+        <img [src]="searchCard(card)" width="60" height="70" alt="">
       </div>
       <h3>{{ card.title }}</h3>
-      <p>{{ card.description}}</p>
+      <p>{{ card.description }}</p>
     </p-card>
   </div>
 </div>

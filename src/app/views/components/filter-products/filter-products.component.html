@@ -6,17 +6,45 @@
         (input)="onSearchChange($event.target.value)">
     </div>
   </div>
-  <div class="p-fluid">
-    <h3 class="title-filter">Categorías</h3>
-    <p-listbox [options]="categories" [(ngModel)]="categorySelected" optionLabel="name"
-      [listStyle]="{'max-height':'250px'}" (onClick)="onCategoryChange()"></p-listbox>
-    <div class="p-d-flex" *ngIf="categorySelected">
-      <div></div>
-      <div class="p-ml-auto p-mt-1">
-        <button pButton type="button" icon="pi pi-trash" class="p-button-raised p-button-rounded"
-          (click)="deleteFilterCategory()"> </button>
+
+  <div *ngIf="categories && categories.length > 0" class="p-fluid p-my-2">
+    <div class="p-d-flex">
+      <div>
+        <h3 class="title-filter">Categorías</h3>
+      </div>
+      <div class="p-ml-auto p-my-1">
+        <button *ngIf="categorySelected" pButton type="button" icon="pi pi-trash"
+          class="p-button-raised p-button-rounded" (click)="deleteFilterCategory()"> </button>
       </div>
     </div>
+
+    <p-listbox [(ngModel)]="categorySelected" [options]="categories" optionLabel="name"
+      [listStyle]="{'max-height':'250px'}" (onClick)="filter()"></p-listbox>
+
   </div>
 
+
+
+  <div *ngIf="vehicle_brands && vehicle_brands.length > 0" class="p-fluid p-my-2">
+    <div class="p-d-flex">
+      <div>
+        <h3 class="title-filter">Vehiculo</h3>
+      </div>
+      <div class="p-ml-auto p-mt-1">
+        <button *ngIf="vehicleBrandSelected" pButton type="button" icon="pi pi-trash"
+          class="p-button-raised p-button-rounded" (click)="deleteFilterVehicle()"> </button>
+      </div>
+    </div>
+
+    <p-listbox [(ngModel)]="vehicleBrandSelected" [options]="vehicle_brands" optionLabel="name"
+      [listStyle]="{'max-height':'250px'}" (onClick)="onBrandSelected()"></p-listbox>
+
+
+    <div *ngIf="vehicleBrandSelected">
+      <hr />
+      <p-listbox [(ngModel)]="vehicleModelSelected" [options]="filterable_vehicle_models" optionLabel="name"
+        [listStyle]="{'max-height':'250px'}" (onClick)="filter()"></p-listbox>
+    </div>
+
+  </div>
 </div>
