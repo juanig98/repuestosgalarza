@@ -22,10 +22,7 @@ export class FilterProductsComponent implements OnInit {
     private categoryService: CategoryService,) { }
 
   ngOnInit(): void {
-    // this.categories.push()
-    this.categoryService.getAllCategories().subscribe(
-      response => { this.categories = response }
-    )
+    this.categoryService.getAllCategories().subscribe(response => { this.categories = response })
   }
 
   public onSearchChange(value: string) {
@@ -51,6 +48,7 @@ export class FilterProductsComponent implements OnInit {
   }
 
   private emit() {
+
     this.productsFiltered.emit(this.filterable_products);
   }
 }
