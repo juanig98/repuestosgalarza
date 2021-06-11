@@ -44,16 +44,14 @@ import { ProductsComponent } from './views/pages/products/products.component';
 import { AboutComponent } from './views/pages/about/about.component';
 
 // Components
-import { FilterProductsComponent } from './views/components/filter-products/filter-products.component';
-import { CardProductComponent } from './views/components/card-product/card-product.component';
-import { NavbarComponent } from './views/components/navbar/navbar.component';
-import { FooterComponent } from './views/components/footer/footer.component';
-
-
+import { FilterProductsComponent } from './views/components/products/filter-products/filter-products.component';
+import { CardProductComponent } from './views/components/products/card-product/card-product.component';
+import { NavbarComponent } from './views/components/includes/navbar/navbar.component';
+import { FooterComponent } from './views/components/includes/footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, AboutComponent, ProductsComponent, FilterProductsComponent, CardProductComponent, NavbarComponent, FooterComponent
+    AppComponent, HomeComponent, AboutComponent, ProductsComponent, FilterProductsComponent, CardProductComponent, NavbarComponent, FooterComponent,
   ],
   imports: [
     ...angularModules,
