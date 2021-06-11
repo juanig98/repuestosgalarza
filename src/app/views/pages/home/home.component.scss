@@ -8,9 +8,11 @@
   max-height: 600px;
 }
 
-.card{
-  width: 20%;
+.card-attention {
   margin: 0 25px;
-  min-width: 320px;
-  max-width: 360;
+}
+
+.card-attention-content{
+  width: 300px;
+  height: 80px;
 }

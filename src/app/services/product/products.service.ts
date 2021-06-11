@@ -24,4 +24,5 @@ export class ProductService {
     return this.http.get<ProductCard[]>(this.route, { headers: { 'Accept': 'application/json' } });
   }
 
+
 }

@@ -8,18 +8,20 @@
 </p-carousel>
 
 <div class="p-text-center">
-  <div *ngFor="let card of cards" class="p-d-inline-flex p-flex-lg-row p-flex-md-row p-flex-sm-row p-my-5">
-    <p-card class="card">
+  <div *ngFor="let card of cards" class="p-d-inline-flex p-flex-lg-column p-flex-md-column p-flex-sm-row p-my-5">
+    <p-card class="card-attention">
       <div class="p-text-center">
         <img [src]="searchCard(card)" width="60" height="70" alt="">
       </div>
-      <h3>{{ card.title }}</h3>
-      <p>{{ card.description }}</p>
+      <div class="card-attention-content">
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.description }}</p>
+      </div>
     </p-card>
   </div>
 </div>
 
-<div class="p-mt-5">
+<div class="p-mt-5 p-px-3">
   <p-carousel [value]="logos" [numVisible]="5" [numScroll]="2" [autoplayInterval]="1500" circular="true"
     [showNavigators]="false" [showIndicators]="false">
     <ng-template let-item pTemplate="item">

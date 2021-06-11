@@ -2,8 +2,11 @@
   max-width: 300px;
   min-width: 200px;
   border-radius: 15px;
+  transition: 0.5s;
 }
-
+.product-card:hover {
+  transform: scale(1.03);
+}
 ::ng-deep .product-card > .p-component,
 .p-component {
   border-radius: 15px;

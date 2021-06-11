@@ -27,9 +27,13 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TabViewModule } from 'primeng/tabview';
 import { ListboxModule } from 'primeng/listbox';
+import { ScrollTopModule } from 'primeng/scrolltop';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ToastModule } from 'primeng/toast';
+import { GalleriaModule } from 'primeng/galleria';
 
 const primeNgModules = [
-  ListboxModule, CarouselModule,
+  ListboxModule, CarouselModule, ScrollTopModule, ProgressSpinnerModule, ToastModule, GalleriaModule,
   InputTextModule, CheckboxModule, RadioButtonModule, DropdownModule, InputTextareaModule, TabViewModule,
   TabMenuModule, ButtonModule, MessageModule, PanelModule, CardModule, DividerModule, SlideMenuModule,
 ]
@@ -48,10 +52,11 @@ import { FilterProductsComponent } from './views/components/products/filter-prod
 import { CardProductComponent } from './views/components/products/card-product/card-product.component';
 import { NavbarComponent } from './views/components/includes/navbar/navbar.component';
 import { FooterComponent } from './views/components/includes/footer/footer.component';
+import { ProductComponent } from './views/pages/product/product.component';
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, AboutComponent, ProductsComponent, FilterProductsComponent, CardProductComponent, NavbarComponent, FooterComponent,
+    AppComponent, HomeComponent, AboutComponent, ProductsComponent, FilterProductsComponent, CardProductComponent, NavbarComponent, FooterComponent, ProductComponent,
   ],
   imports: [
     ...angularModules,
