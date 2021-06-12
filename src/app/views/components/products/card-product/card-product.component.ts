@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { route_server } from 'src/app/config/routes';
+import { NavigationExtras, Router } from '@angular/router';
+import { route_server, route_web } from 'src/app/config/routes';
 import { Product } from 'src/app/models/Product';
 import { ProductCard } from 'src/app/models/ProductCard';
 import Swal from 'sweetalert2';
@@ -13,15 +14,25 @@ export class CardProductComponent implements OnInit {
 
   @Input() product: any;
 
-  constructor() { }
+  constructor(private readonly router: Router) { }
 
   ngOnInit(): void {
   }
 
-  public searchImage(image: string) {
+  public sourceImage(image: string) {
     let file_name = (image) ? image : "no_image.png";
-    return `${route_server}/storage/uploads/products/${file_name}`
+    return `${route_server}/storage/uploads/products/${file_name}`;
   }
+
+  public imgError(event) {
+    return `${route_server}/storage/uploads/products/no_image.png`;
+  }
+
+  public viewProduct(product: ProductCard) {
+    const navigationExtras: NavigationExtras = { state: { data: product } };
+    this.router.navigate([`productos/${product.slug}`], navigationExtras);
+  }
+
   public queryProduct(product: ProductCard) {
     const text = 'Hola, te consulto por el siguiente producto: ' + product.title;
 

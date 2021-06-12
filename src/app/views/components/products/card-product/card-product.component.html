@@ -3,7 +3,7 @@
   <p-card [header]="product.title" [subheader]="product.product_code" class="product-card p-mr-3 p-mb-3 p-shadow-4">
 
     <ng-template pTemplate="header">
-      <img alt="product.description" [src]="searchImage(product.file_name)" class="img-product">
+      <img alt="product.description" [src]="sourceImage(product.file_name)" onerror="this.onerror=null;this.src='https://repuestosgalarza.com.ar/storage/uploads/products/no_image.png';" class="img-product">
     </ng-template>
 
     <ng-template pTemplate="body">
@@ -11,6 +11,8 @@
     </ng-template>
 
     <ng-template pTemplate="footer">
+      <button (click)="viewProduct(product)" class="btn bg-secondary text-white rounded-lg p-mr-2"> <i
+          class="pi pi-eye p-mr-1"></i> Ver</button>
       <button (click)="queryProduct(product)" class="btn bg-primary text-white rounded-lg"> <i
           class="pi pi-shopping-cart p-mr-1"></i> Comprar</button>
     </ng-template>

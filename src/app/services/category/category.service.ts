@@ -1,3 +1,4 @@
+import { headers } from './../../config/app';
 import { Category } from './../../models/Category';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -17,9 +18,9 @@ export class CategoryService {
   ) { }
 
   public getCategory(id: number): Observable<Category> {
-    return this.http.get<Category>(`${this.route}/${id}`, { headers: { 'Accept': 'application/json' } });
+    return this.http.get<Category>(`${this.route}/${id}`, headers);
   }
   public getAllCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(`${this.route}-products`, { headers: { 'Accept': 'application/json' } });
+    return this.http.get<Category[]>(`${this.route}-products`, headers);
   }
 }

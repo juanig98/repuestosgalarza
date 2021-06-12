@@ -1,8 +1,12 @@
 $primary-color: #2a3576;
+$secondary-color: #E33229;
 $primary-color-light: #38479d;
 
 .bg-primary {
   background-color: $primary-color;
+}
+.bg-secondary {
+  background-color: $secondary-color;
 }
 .bg-primary:hover {
   background-color: $primary-color-light;

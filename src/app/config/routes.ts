@@ -6,10 +6,10 @@ import { environment } from "src/environments/environment";
 export const current_route = window.location.pathname;
 
 /** Ruta actual */
-export const route_server = (environment.development) ? 'https://repuestosgalarza.local/' : 'https://repuestosgalarza.com.ar';
+export const route_server = (environment.development) ? 'https://repuestosgalarza.local/' : 'https://repuestosgalarza.local/';
 
 /** Ruta de peticiones al servidor */
-export const route_web = `${window.location.origin}`;
+export const route_web = `/${window.location.origin}`;
 
 /** Ruta de peticiones al servidor */
 const protocol_api = (environment.development) ? 'https' : 'https';

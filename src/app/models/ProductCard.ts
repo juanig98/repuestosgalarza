@@ -1,10 +1,12 @@
 export class ProductCard {
+  id: number;
   product_id: number;
   category_id: number;
   media_id: number;
   title: string;
   description: string;
   product_code: string;
+  slug: string;
   file_name: string;
   name: string;
   offer: number;

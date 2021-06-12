@@ -1,8 +1,42 @@
-<div class="p-m-5">
-  <p-galleria [value]="images">
-    <ng-template pTemplate="img" let-img>
-      <img [src]="img.src" [alt]="img.alt" />
-    </ng-template>
-  </p-galleria>
+<div class="product-viewer">
 
+  <div class="p-grid">
+
+    <div class="p-sm-12 p-md-6 p-lg-6 p-pr-3">
+      <div class="p-shadow-16 bg-gallery  rounded-lg" style="min-height: 70vh;">
+
+        <p-galleria [(value)]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5" [circular]="true"
+          [showItemNavigators]="false">
+          <ng-template pTemplate="item" let-item>
+            <div class="img-viewer">
+              <img [src]="item.src" class="img" />
+            </div>
+          </ng-template>
+          <ng-template pTemplate="thumbnail" let-item>
+            <div class="p-grid p-nogutter p-justify-center">
+              <div class="p-ml-3">
+                <img [src]="item.src" width="75" height="75" style="display: block;" />
+              </div>
+            </div>
+          </ng-template>
+        </p-galleria>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg p-shadow-6 p-sm-12 p-md-6 p-lg-6">
+      <div class="p-p-5">
+        <div class="p-p-2">
+          <h2>
+            {{ product.title }}
+          </h2>
+        </div>
+        {{ product.description }}
+        <p>{{ product.product_code }}</p>
+        <p>{{ product.category_name }}</p>
+      </div>
+
+    </div>
+
+
+  </div>
 </div>
