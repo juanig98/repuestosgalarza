@@ -31,11 +31,21 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 import { GalleriaModule } from 'primeng/galleria';
+import { GMapModule } from 'primeng/gmap';
 
 const primeNgModules = [
+  GMapModule,
   ListboxModule, CarouselModule, ScrollTopModule, ProgressSpinnerModule, ToastModule, GalleriaModule,
   InputTextModule, CheckboxModule, RadioButtonModule, DropdownModule, InputTextareaModule, TabViewModule,
   TabMenuModule, ButtonModule, MessageModule, PanelModule, CardModule, DividerModule, SlideMenuModule,
+]
+
+// Other Modules
+// import { AgmCoreModule } from '@agm/core'; // Google
+const otherModules = [
+  // AgmCoreModule.forRoot({
+  //   apiKey: 'GOOGLE MAPS API KEY'
+  // })
 ]
 
 // Views
@@ -46,21 +56,23 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './views/pages/home/home.component';
 import { ProductsComponent } from './views/pages/products/products.component';
 import { AboutComponent } from './views/pages/about/about.component';
+import { ProductComponent } from './views/pages/product/product.component';
+import { ContactComponent } from './views/pages/contact/contact.component';
 
 // Components
 import { FilterProductsComponent } from './views/components/products/filter-products/filter-products.component';
 import { CardProductComponent } from './views/components/products/card-product/card-product.component';
 import { NavbarComponent } from './views/components/includes/navbar/navbar.component';
 import { FooterComponent } from './views/components/includes/footer/footer.component';
-import { ProductComponent } from './views/pages/product/product.component';
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, AboutComponent, ProductsComponent, FilterProductsComponent, CardProductComponent, NavbarComponent, FooterComponent, ProductComponent,
+    AppComponent, HomeComponent, AboutComponent, ProductsComponent, FilterProductsComponent, CardProductComponent, NavbarComponent, FooterComponent, ProductComponent, ContactComponent,
   ],
   imports: [
     ...angularModules,
     ...primeNgModules,
+    ...otherModules,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-AR' },

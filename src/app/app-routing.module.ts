@@ -1,3 +1,4 @@
+import { ContactComponent } from './views/pages/contact/contact.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './views/pages/about/about.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
       { path: ':item', component: ProductComponent }
     ]
   },
-  { path: 'sobre nosotros', component: AboutComponent },
+  { path: 'sobre-nosotros', component: AboutComponent },
+  { path: 'contacto', component: ContactComponent },
 
 ];
 

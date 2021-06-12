@@ -1,11 +1,14 @@
-.product-card {
-  max-width: 300px;
+.container-product-card {
+  max-width: 290px;
   min-width: 200px;
-  border-radius: 15px;
   transition: 0.5s;
+  border-radius: 15px;
 }
-.product-card:hover {
-  transform: scale(1.03);
+.product-card {
+  border-radius: 15px;
+}
+.container-product-card:hover {
+  transform: scale(1.035);
 }
 ::ng-deep .product-card > .p-component,
 .p-component {
@@ -21,7 +24,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .product-card {
+  .container-product-card {
     margin-top: 12px;
     min-width: 100%;
   }

@@ -1,9 +1,10 @@
-<div class="p-d-inline-flex">
-
-  <p-card [header]="product.title" [subheader]="product.product_code" class="product-card p-mr-3 p-mb-3 p-shadow-4">
+<div class="p-mr-3 p-mb-3 p-shadow-4 container-product-card">
+  <p-card [header]="product.title" [subheader]="product.product_code" class="product-card">
 
     <ng-template pTemplate="header">
-      <img alt="product.description" [src]="sourceImage(product.file_name)" onerror="this.onerror=null;this.src='https://repuestosgalarza.com.ar/storage/uploads/products/no_image.png';" class="img-product">
+      <img alt="product.description" [src]="sourceImage(product.file_name)"
+        onerror="this.onerror=null;this.src='https://repuestosgalarza.com.ar/storage/uploads/products/no_image.png';"
+        class="img-product">
     </ng-template>
 
     <ng-template pTemplate="body">
@@ -18,5 +19,4 @@
     </ng-template>
 
   </p-card>
-
 </div>

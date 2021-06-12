@@ -1,0 +1,21 @@
+@import "src/assets/scss/colors.scss";
+
+.container-card-about {
+  padding: 5% 8%;
+  background-repeat: round;
+  background-image: url("../../../../assets/images/local_interior_1.jpg");
+}
+
+@media screen and (max-width: 600px) {
+  .container-card-about {
+    padding: 2% 4%;
+    background-repeat: no-repeat;
+  }
+}
+.card-about {
+  max-width: 768px;
+  text-align: left;
+  border-radius: 6px;
+  background-color: $primary-color-light;
+  color: white;
+}

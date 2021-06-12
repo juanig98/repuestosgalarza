@@ -41,7 +41,12 @@ body {
 .text-gray {
   color: gray;
 }
-
+.cursor-pointer {
+  cursor: pointer;
+}
+.content {
+  padding: 3% 0 15% 0;
+}
 @keyframes p-progress-spinner-color {
   100%,
   0% {
