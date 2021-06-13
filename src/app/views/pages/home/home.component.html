@@ -1,5 +1,5 @@
 <div style="margin-top: 1%;">
-  <p-carousel [value]="banners" [autoplayInterval]="4500" [circular]="true" [showNavigators]="false"
+  <p-carousel [value]="banners" [autoplayInterval]="6500" [circular]="true" [showNavigators]="false"
     [showIndicators]="false">
     <ng-template let-item pTemplate="item">
       <div class="cont-banner-image">
@@ -9,25 +9,62 @@
   </p-carousel>
 </div>
 
-<div class="p-text-center">
-  <div *ngFor="let card of cards" class="p-d-inline-flex p-flex-lg-column p-flex-md-column p-flex-sm-row p-my-5">
-    <p-card class="card-attention">
-      <div class="p-text-center">
-        <img [src]="searchCard(card)" width="60" height="70" alt="">
+<div class="p-mt-5 p-p-3">
+  <div class="title">
+    <h1 class="text-white"> Productos destacados </h1>
+  </div>
+  <p-carousel [value]="featured" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true"
+    [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+    <ng-template let-product pTemplate="item">
+      <div class="product-item">
+        <div class="product-item-content">
+          <div class="p-mb-3">
+            <img [src]="sourceImageProduct(product.file_name)" width="50" [alt]="product.title" class="product-image" />
+          </div>
+          <div>
+            <div class="p-text-center">
+              <div style="margin:auto;max-width: 80%; text-align: center;">
+                <h4 class="p-mb-1">{{product.title}}</h4>
+              </div>
+              <h2 class="p-my-3 text-secondary">${{product.price}}</h2>
+            </div>
+            <!-- <span class="">{{product.quantity}}</span> -->
+            <!-- <div class="car-buttons p-mt-5">
+              <p-button type="button" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-search"></p-button>
+              <p-button type="button" styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-star"></p-button>
+              <p-button type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-cog"></p-button>
+            </div> -->
+          </div>
+        </div>
       </div>
-      <div class="card-attention-content">
-        <h3>{{ card.title }}</h3>
-        <p>{{ card.description }}</p>
-      </div>
-    </p-card>
+    </ng-template>
+  </p-carousel>
+</div>
+
+
+<div class="p-mt-5">
+  <div class="p-text-center">
+    <div *ngFor="let card of cards" class="p-d-inline-flex p-flex-lg-column p-flex-md-column p-flex-sm-row p-my-5">
+      <p-card class="card-attention">
+        <div class="p-text-center">
+          <img [src]="searchCard(card)" width="60" height="70" alt="">
+        </div>
+        <div class="card-attention-content">
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.description }}</p>
+        </div>
+      </p-card>
+    </div>
   </div>
 </div>
 
-<div class="p-mt-5 p-px-3">
-  <p-carousel [value]="logos" [numVisible]="5" [numScroll]="2" [autoplayInterval]="1500" circular="true"
+<div class="last-container">
+  <p-carousel [value]="logos" [numVisible]="5" [numScroll]="2" [autoplayInterval]="2000" circular="true"
     [showNavigators]="false" [showIndicators]="false">
     <ng-template let-item pTemplate="item">
-      <img [src]="searchLogo(item)" height="150" width="250" alt="" />
-    </ng-template>
+      <div class="p-m-4">
+        <img [src]="searchLogo(item)" height="150" width="250" alt="" />
+      </div>
+      </ng-template>
   </p-carousel>
 </div>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { route_server } from 'src/app/config/routes';
+import { ProductCard } from 'src/app/models/ProductCard';
 import { BannerService } from 'src/app/services/banner/banner.service';
+import { ProductService } from 'src/app/services/product/products.service';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +12,7 @@ import { BannerService } from 'src/app/services/banner/banner.service';
 export class HomeComponent implements OnInit {
 
   banners = [];
+  featured: ProductCard[];
   logos = ["toyota", "hyundai", "kia", "chevrolet", "honda", "landrover", "nissan", "ford", "subaru", "lexus", "audi", "bmw"];
   cards = [
     { title: "Calidad", description: "Productos de calidad y durabilidad.", image: "calidad" },
@@ -18,18 +22,36 @@ export class HomeComponent implements OnInit {
   ]
 
   alt = "Repuestos - Galarza - Repuestos importados"
-
+  responsiveOptions;
   constructor(
     private bannerService: BannerService,
+    private productService: ProductService,
   ) { }
 
   ngOnInit(): void {
-    this.bannerService.getAll().subscribe(
-      response => {
-        this.banners = response;
+    this.responsiveOptions = [
+      {
+        breakpoint: '1024px',
+        numVisible: 3,
+        numScroll: 3
       },
-      error => { }
-    )
+      {
+        breakpoint: '768px',
+        numVisible: 2,
+        numScroll: 2
+      },
+      {
+        breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
+
+
+    this.bannerService.getAll().subscribe(response => { this.banners = response; }, error => { })
+    this.productService.getFeatured().subscribe(response => { this.featured = response; }, error => { })
+
+
   }
 
   public searchImage(item) {
@@ -37,12 +59,10 @@ export class HomeComponent implements OnInit {
     return `https://repuestosgalarza.local/storage/images/${item.image}`
   }
 
-  public searchLogo(item) {
-    return `../../../../assets/images/logos/${item}.png`
+  public sourceImageProduct(filename: string) {
+    return `${route_server}/storage/uploads/products/${filename}`;
   }
+  public searchLogo(item) { return `../../../../assets/images/logos/${item}.png` }
 
-  public searchCard(card) {
-    return `https://repuestosgalarza.local/storage/images/icons/${card.image}.png`
-
-  }
+  public searchCard(card) { return `https://repuestosgalarza.local/storage/images/icons/${card.image}.png` }
 }

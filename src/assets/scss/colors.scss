@@ -1,5 +1,5 @@
 $primary-color: #2a3576;
-$secondary-color: #E33229;
+$secondary-color: #e33229;
 $primary-color-light: #38479d;
 
 .bg-primary {
@@ -29,4 +29,8 @@ $primary-color-light: #38479d;
 }
 .text-white {
   color: white;
+}
+
+.text-secondary {
+  color: $secondary-color;
 }

@@ -28,6 +28,8 @@ export class ProductService {
   public getAllProducts(): Observable<ProductCard[]> {
     return this.http.get<ProductCard[]>(this.route, headers);
   }
+  public getFeatured(): Observable<ProductCard[]> {
+    return this.http.get<ProductCard[]>(`${this.route}/featured`, headers);  }
 
   public getImages(id: number): Observable<Image[]> {
     return this.http.get<Image[]>(`${this.route}/images/${id}`, headers)
