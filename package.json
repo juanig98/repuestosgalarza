@@ -9,7 +9,7 @@
     "test": "ng test"
   },
   "private": true,
-  "dependencies": {
+  "dependencies": { 
     "@angular/animations": "~12.0.3",
     "@angular/cdk": "^12.0.4",
     "@angular/common": "~12.0.3",
@@ -33,7 +33,7 @@
     "@angular/cli": "~12.0.3",
     "@angular/compiler-cli": "~12.0.3",
     "@schematics/angular": "^12.0.3",
-    "@types/googlemaps": "^3.36.4",
+    "@types/googlemaps": "^3.43.1",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.7.0",

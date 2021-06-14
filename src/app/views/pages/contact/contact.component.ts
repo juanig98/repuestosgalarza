@@ -6,64 +6,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  options: any;
-
-  overlays: any[];
-
-  dialogVisible: boolean;
-
-  markerTitle: string;
-
-  selectedPosition: any;
-
-  infoWindow: any;
-
-  draggable: boolean;
+  // location: string = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6812.219676702602!2d-58.03325047429895!3d-31.383534775660177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95ade841a10f8cbb%3A0x4a4abd6d6ca14c34!2sSan%20Lorenzo%20Oeste%20939%2C%20E3202%20Concordia%2C%20Entre%20R%C3%ADos!5e0!3m2!1ses-419!2sar!4v1577579169761!5m2!1ses-419!2sar";
 
   constructor() { }
 
   ngOnInit() {
-    this.options = {
-      center: { lat: 36.890257, lng: 30.707417 },
-      zoom: 12
-    };
-
-    this.initOverlays();
-
-    this.infoWindow = new google.maps.InfoWindow();
   }
 
-  addMarker() {
-    this.overlays.push(new google.maps.Marker({ position: { lat: this.selectedPosition.lat(), lng: this.selectedPosition.lng() }, title: this.markerTitle, draggable: this.draggable }));
-    this.markerTitle = null;
-    this.dialogVisible = false;
-  }
-  initOverlays() {
-    if (!this.overlays || !this.overlays.length) {
-      this.overlays = [
-        new google.maps.Marker({ position: { lat: 36.879466, lng: 30.667648 }, title: "Konyaalti" }),
-        new google.maps.Marker({ position: { lat: 36.883707, lng: 30.689216 }, title: "Ataturk Park" }),
-        new google.maps.Marker({ position: { lat: 36.885233, lng: 30.702323 }, title: "Oldtown" }),
-        new google.maps.Polygon({
-          paths: [
-            { lat: 36.9177, lng: 30.7854 }, { lat: 36.8851, lng: 30.7802 }, { lat: 36.8829, lng: 30.8111 }, { lat: 36.9177, lng: 30.8159 }
-          ], strokeOpacity: 0.5, strokeWeight: 1, fillColor: '#1976D2', fillOpacity: 0.35
-        }),
-        new google.maps.Circle({ center: { lat: 36.90707, lng: 30.56533 }, fillColor: '#1976D2', fillOpacity: 0.35, strokeWeight: 1, radius: 1500 }),
-        new google.maps.Polyline({ path: [{ lat: 36.86149, lng: 30.63743 }, { lat: 36.86341, lng: 30.72463 }], geodesic: true, strokeColor: '#FF0000', strokeOpacity: 0.5, strokeWeight: 2 })
-      ];
-    }
-  }
-
-  zoomIn(map) {
-    map.setZoom(map.getZoom() + 1);
-  }
-
-  zoomOut(map) {
-    map.setZoom(map.getZoom() - 1);
-  }
-
-  clear() {
-    this.overlays = [];
-  }
 }
