@@ -1,0 +1,12 @@
+.form-contact {
+  align-items: center;
+  margin: 50px auto;
+  max-width: 80%;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .form-contact {
+    max-width: 95%;
+  }
+}

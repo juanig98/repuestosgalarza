@@ -62,6 +62,9 @@ export class HomeComponent implements OnInit {
   public sourceImageProduct(filename: string) {
     return `${route_server}/storage/uploads/products/${filename}`;
   }
+  public getRoute(product: ProductCard){
+    return `/productos/${product.slug}`;
+  }
   public searchLogo(item) { return `../../../../assets/images/logos/${item}.png` }
 
   public searchCard(card) { return `https://repuestosgalarza.local/storage/images/icons/${card.image}.png` }

@@ -1,4 +1,56 @@
 <div class="content">
+
+  <div class="send-message">
+    <div class="p-text-center text-white">
+      <h1>DÉJANOS UN MENSAJE</h1>
+    </div>
+
+    <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+
+      <div class="form-contact">
+
+        <div class="p-fluid p-formgrid p-grid">
+          <div class="p-field p-col-12 p-md-4">
+            <span class="p-float-label">
+              <input id="name" formControlName="inputName" type="text" pInputText>
+              <label for="name">Nombre</label>
+            </span>
+          </div>
+          <div class="p-field p-col-12 p-md-4">
+            <span class="p-float-label">
+              <input id="email" formControlName="inputEmail" type="email" pInputText>
+              <label for="email">Correo electrónico</label>
+            </span>
+          </div>
+          <div class="p-field p-col-12 p-md-4">
+            <span class="p-float-label">
+              <input id="phone" formControlName="inputPhone" type="text" pInputText>
+              <label for="phone">Teléfono</label>
+            </span>
+          </div>
+          <div class="p-field p-col-12 p-md-12 p-mt-4">
+            <span class="p-float-label">
+              <input id="subject" formControlName="inputSubject" type="text" pInputText>
+              <label for="subject">Asunto</label>
+            </span>
+          </div>
+          <div class="p-field p-col-12 p-mt-4">
+            <span class="p-float-label">
+              <textarea id="message" formControlName="inputMessage" type="text" rows="4" pInputTextarea></textarea>
+              <label for="message">Mensaje</label>
+            </span>
+          </div>
+        </div>
+        <div class="p-field p-col-12 p-text-center p-mt-2">
+          <p-button label="Enviar mensaje" type="submit" icon="pi pi-send" iconPos="right" [loading]="loading">
+          </p-button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+
   <div class="container-card-about p-text-center">
     <div class="p-p-4 card-about">
       <iframe

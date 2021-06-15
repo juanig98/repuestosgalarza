@@ -4,12 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule } from '@angular/forms';
 // Locale
 import localeEsAr from "@angular/common/locales/es-AR";
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localeEsAr, "es-AR");
-const angularModules = [FormsModule, AppRoutingModule, BrowserModule, HttpClientModule, BrowserAnimationsModule,]
+const angularModules = [ReactiveFormsModule, FormsModule, AppRoutingModule, BrowserModule, HttpClientModule, BrowserAnimationsModule,]
 
 // Modules ng-prime
 import { TabMenuModule } from 'primeng/tabmenu';

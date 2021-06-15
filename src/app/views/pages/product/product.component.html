@@ -1,5 +1,5 @@
 <div class="content">
-  <div class="product-viewer">
+  <div class="product-viewer" *ngIf="product">
 
     <div class="p-grid">
 
@@ -40,5 +40,9 @@
 
 
     </div>
+  </div>
+
+  <div style="height: 80%; text-align:center; padding:10%" *ngIf="!product">
+    <img src="../../../../assets/images/gifs/tacometer.gif" width="25%" alt="" srcset="">
   </div>
 </div>

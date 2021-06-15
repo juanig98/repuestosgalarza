@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { route_server } from 'src/app/config/routes';
-import { consolelog } from 'src/app/helpers/funtions';
+import { consolelog, redirect } from 'src/app/helpers/funtions';
 import { Image } from 'src/app/models/Image';
 import { Product } from 'src/app/models/Product';
 import { ProductCard } from 'src/app/models/ProductCard';
@@ -52,11 +52,13 @@ export class ProductComponent implements OnInit {
 
       this.productService.getProductBySlug(this.item).subscribe(
         response => {
-          this.product = response
-
+          if (!response) redirect('productos')
+          this.product = response;
           this.setImages(this.product.id);
-        }
+        },
+        error => { redirect('productos') }
       )
+
     }
   }
 
