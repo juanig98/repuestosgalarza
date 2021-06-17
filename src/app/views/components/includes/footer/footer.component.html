@@ -1,4 +1,90 @@
+<div class="w-100 footer p-grid">
 
-<div class="w-100 footer">
 
+  <div class="p-col-12 p-lg-4 p-md-4 p-text-center p-py-5">
+    <img src="assets/images/logo_home.png" [routerLink]="['/']" width="80%" routerLinkActive="router-link-active"
+      class="cursor-pointer" alt="">
+  </div>
+  <div class="p-col-12 p-lg-4 p-md-4 p-text-center w-50">
+    <h2 class="text-white">Links</h2>
+    <hr>
+    <div class="pop-link">
+      <a routerLink="sobre-nosotros">¿Quiénes somos?</a>
+      <a routerLink="productos">Productos</a>
+      <a routerLink="contacto">Contacto </a>
+    </div>
+  </div>
+
+  <div class="p-col-12 p-lg-4 p-md-4 text-white">
+    <div class="p-text-center">
+      <h2 class="text-white">¿Consultas?</h2>
+    </div>
+    <hr>
+
+    <div class="p-grid">
+
+      <div class="p-col-fixed" style="width:75px; align-items: center; padding: 15px 0">
+        <div class="">
+          <a target="_blank" [href]="location_maps" class="text-white">
+            <i class="pi pi-map-marker contact-icon"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="p-col" style="margin: auto;">
+        <a target="_blank" [href]="location_maps" class="text-white"><span> {{ address}}</span></a>
+      </div>
+
+    </div>
+
+
+    <div class="p-grid">
+
+      <div class="p-col-fixed" style="width:75px; align-items: center; padding: 15px 0">
+        <div class="">
+          <a [href]="teltelephone" class="text-white"><i class="pi pi-phone contact-icon"></i></a>
+        </div>
+      </div>
+
+      <div class="p-col" style="margin: auto;">
+        <a [href]="teltelephone" class="text-white">
+          <span>{{ telephone }}</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="p-grid">
+
+      <div class="p-col-fixed" style="width:75px; align-items: center; padding: 15px 0">
+        <div class="">
+          <a [href]="telphone" class="text-white"><i class="pi pi-phone contact-icon"></i></a>
+        </div>
+      </div>
+
+      <div class="p-col" style="margin: auto;">
+        <a [href]="telphone" class="text-white">{{ phone }}</a>
+      </div>
+
+    </div>
+    <div class="p-grid">
+
+      <div class="p-col-fixed" style="width:75px; align-items: center; padding: 15px 0">
+        <div class="">
+          <a target="_blank" [href]="mailto" class="text-white"><i class="pi pi-send contact-icon "></i></a>
+        </div>
+      </div>
+
+      <div class="p-col" style="margin: auto;">
+        <a target="_blank" [href]="mailto"> {{ email }} </a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="p-grid p-my-3">
+    <div class="p-col-12 p-text-center text-white">
+      Copyright &copy; {{ year }} Todos los derechos reservados | {{ bussiness_name }}.
+    </div>
+  </div>
 </div>

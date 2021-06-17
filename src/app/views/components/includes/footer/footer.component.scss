@@ -1,4 +1,41 @@
-.footer{
+.footer {
   background-color: #232323;
   min-height: 200px;
+  padding: 0;
+  margin: 0;
+}
+
+a:hover {
+  color: red;
+}
+.pop-link a {
+  margin: 25px 10%;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #dedede;
+  display: flex;
+}
+a {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.contact-icon:hover {
+  color: red;
+  border-color: red;
+}
+.contact-icon {
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  padding: 10px;
+  width: 38px;
+  height: 38px;
+  text-align: center;
+  margin: 0 20px;
+}
+
+hr {
+  border: solid 0.5px red;
+  width: 80%;
 }

@@ -32,7 +32,6 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 import { GalleriaModule } from 'primeng/galleria';
 import { GMapModule } from 'primeng/gmap';
-
 const primeNgModules = [
   GMapModule,
   ListboxModule, CarouselModule, ScrollTopModule, ProgressSpinnerModule, ToastModule, GalleriaModule,
@@ -41,12 +40,7 @@ const primeNgModules = [
 ]
 
 // Other Modules
-// import { AgmCoreModule } from '@agm/core'; // Google
-const otherModules = [
-  // AgmCoreModule.forRoot({
-  //   apiKey: 'GOOGLE MAPS API KEY'
-  // })
-]
+const otherModules = []
 
 // Views
 import { AppRoutingModule } from './app-routing.module';
