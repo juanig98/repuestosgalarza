@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo -e '\nCompilando...\n'
+
+# Compilar el proyecto con la configuración de producción
+ng build --configuration production --base-href /
+
+echo -e '\nCompilación finalizada'

@@ -55,17 +55,17 @@ export class HomeComponent implements OnInit {
   }
 
   public searchImage(item) {
-    if (item.image == null) return `https://repuestosgalarza.local/storage/images/no_image.png`
-    return `https://repuestosgalarza.local/storage/images/${item.image}`
+    if (item.image == null) return `${route_server}/storage/images/no_image.png`
+    return `${route_server}/storage/images/${item.image}`
   }
 
   public sourceImageProduct(filename: string) {
     return `${route_server}/storage/uploads/products/${filename}`;
   }
-  public getRoute(product: ProductCard){
+  public getRoute(product: ProductCard) {
     return `/productos/${product.slug}`;
   }
   public searchLogo(item) { return `../../../../assets/images/logos/${item}.png` }
 
-  public searchCard(card) { return `https://repuestosgalarza.local/storage/images/icons/${card.image}.png` }
+  public searchCard(card) { return `${route_server}storage/images/icons/${card.image}.png` }
 }
