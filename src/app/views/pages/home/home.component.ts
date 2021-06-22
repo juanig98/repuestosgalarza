@@ -3,6 +3,7 @@ import { route_server } from 'src/app/config/routes';
 import { ProductCard } from 'src/app/models/ProductCard';
 import { BannerService } from 'src/app/services/banner/banner.service';
 import { ProductService } from 'src/app/services/product/products.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private bannerService: BannerService,
     private productService: ProductService,
+    private sanitizer: DomSanitizer,
   ) { }
 
   ngOnInit(): void {
@@ -68,4 +70,8 @@ export class HomeComponent implements OnInit {
   public searchLogo(item) { return `../../../../assets/images/logos/${item}.png` }
 
   public searchCard(card) { return `${route_server}storage/images/icons/${card.image}.png` }
+
+  toHtml(htmlTextWithStyle) {
+    return this.sanitizer.bypassSecurityTrustHtml(htmlTextWithStyle);
+}
 }

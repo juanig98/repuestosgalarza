@@ -1,4 +1,4 @@
-@import 'src/styles.scss';
+@import "src/styles.scss";
 
 .navbar {
   background-color: white;
@@ -7,9 +7,41 @@
 }
 
 .whatsapp {
-  border-color: #26af3b;
-  background-color: #26af3b;
-  padding: 0.5px;
+  border-color: #26af3b !important;
+  background-color: #26af3b !important;
+}
+.whatsapp:hover{
+  border-color: #1e8c2e !important;
+  background-color: #1e8c2e !important;
+}
+
+.location{
+  border-color: $secondary-color;
+  background-color: $secondary-color;
+}
+.location:hover{
+  border-color: #aa2722;
+  background-color: #aa2722;
+}
+
+.phone{
+  border-color: $primary-color-light;
+  background-color: $primary-color-light;
+}
+.phone:hover{
+  border-color: #192568;
+  background-color: #192568;
+
+}
+.icon-navbar {
+  text-align: center;
+  margin: 8px;
+  padding: 5px 5px 5px 8px;
+
+  img {
+    text-align: center;
+    width: 42px;
+  }
 }
 
 .display-mobile {
@@ -67,7 +99,6 @@
     width: 75%;
   }
 
-
   .display-mobile {
     visibility: visible;
     display: block;
@@ -80,9 +111,9 @@
 
 ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
   border-color: $primary-color;
-  color: $primary-color
+  color: $primary-color;
 }
 ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link :focus {
   border-color: $primary-color;
-  color: $primary-color
+  color: $primary-color;
 }

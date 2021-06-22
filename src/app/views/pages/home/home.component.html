@@ -4,6 +4,7 @@
     <ng-template let-item pTemplate="item">
       <div class="cont-banner-image">
         <img [src]="searchImage(item)" width="100" height="360" [alt]="alt" class="banner-image">
+        <div class="banner-text" [innerHTML]="toHtml(item.title)"></div>
       </div>
     </ng-template>
   </p-carousel>

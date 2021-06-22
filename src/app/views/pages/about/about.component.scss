@@ -11,11 +11,15 @@
     padding: 2% 4%;
     background-repeat: no-repeat;
   }
+  .card-about {
+    font-size: 16px !important;
+  }
 }
 .card-about {
-  max-width: 768px;
+  max-width: 960px;
   text-align: left;
+  font-size: 22px;
   border-radius: 6px;
   background-color: $primary-color-light;
-  color: white;
+  color: #ffffff;
 }

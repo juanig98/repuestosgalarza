@@ -1,7 +1,8 @@
 <div class="navbar p-d-flex p-flex-column p-flex-md-row p-py-3 p-px-4">
 
   <div rout class="p-text-center">
-    <img src="assets/images/logo_home.png" [routerLink]="['/']" routerLinkActive="router-link-active"  class="cursor-pointer logo-img" alt="">
+    <img src="assets/images/logo_home.png" [routerLink]="['/']" routerLinkActive="router-link-active"
+      class="cursor-pointer logo-img" alt="">
   </div>
 
   <div class="menu-container">
@@ -17,10 +18,15 @@
   </div>
 
   <div class="display-web p-text-center">
-    <button pButton type="button" class="p-mr-1 p-button-rounded whatsapp">
-      <img src="../assets/images/icons/whatsapp.png"></button>
-    <button pButton type="button" icon="pi pi-check" class="p-mr-1 p-button-rounded cscss"></button>
-    <button pButton type="button" icon="pi pi-check" class="p-mr-1 p-button-rounded cscss"></button>
+    <button pButton type="button" title="Comunicate por whatsapp" class="p-mr-1 p-button-rounded icon-navbar whatsapp">
+      <img src="../assets/images/icons/whatsapp.png">
+    </button>
+    <button pButton type="button" title="Llámanos" class="p-mr-1 p-button-rounded icon-navbar phone">
+      <img src="../assets/images/icons/phone.png">
+    </button>
+    <button pButton type="button" title="Acércate a nuestra sucursal" class="p-mr-1 p-button-rounded icon-navbar location">
+      <img src="../assets/images/icons/location.png">
+    </button>
   </div>
 
 </div>

@@ -1,14 +1,35 @@
-@import 'src/styles.scss';
+@import "src/styles.scss";
 
 .cont-banner-image {
   text-align: center !important;
+  position: relative;
+  display: block;
 }
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  color: white;
+  text-transform: uppercase;
+  font-family: RobotoSlab-Regular, serif;
+  font-size: 55px;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 3px 3px 4px #000;
+}
+
 .banner-image {
   margin: auto;
   border-radius: 5px;
   max-width: 1920px;
   width: 99.5%;
-  height: 50vh;
+  height: 60vh;
 }
 
 .card-attention {
@@ -17,11 +38,17 @@
 
 .card-attention-content {
   height: 80px;
+  width: 250px;
 }
 
 @media screen and (max-width: 600px) {
   .banner-image {
     height: 30vh;
+  }
+  .banner-text {
+    width: 70%;
+    font-size: 22px;
+    font-weight: 700;
   }
 }
 
@@ -30,8 +57,6 @@
 }
 
 .product-item {
-
-
   .product-item-content {
     color: white;
     cursor: pointer;
@@ -40,7 +65,6 @@
     text-align: center;
     padding: 2rem 0;
   }
-
 
   .product-image {
     max-width: 280px;
