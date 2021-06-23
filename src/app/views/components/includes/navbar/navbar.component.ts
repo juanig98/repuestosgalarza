@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { info } from 'src/app/config/app';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,10 @@ import { MenuItem } from 'primeng/api';
 })
 export class NavbarComponent implements OnInit {
   items: MenuItem[];
-
+  location = info.location_maps;
+  telephone = info.telephone;
+  teltelephone = "tel:" + info.telephone;
+  whatsapp = `https://wa.me/${info.phone}?text=${encodeURI('Hola, me comunico por')}`;
   activeItem: MenuItem;
 
   ngOnInit() {
@@ -34,4 +38,5 @@ export class NavbarComponent implements OnInit {
         }
       }
   }
+
 }

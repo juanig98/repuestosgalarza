@@ -36,6 +36,8 @@
           <p>{{ product.category_name }}</p>
         </div>
 
+        <button (click)="queryProduct()" class="btn bg-primary text-white rounded-lg"> <i
+            class="pi pi-shopping-cart p-mr-1"></i> Consultar</button>
       </div>
 
 
@@ -46,3 +48,5 @@
     <img src="../../../../assets/images/gifs/tacometer.gif" width="25%" alt="" srcset="">
   </div>
 </div>
+
+<app-query-product *ngIf="query_product" [product]="product"></app-query-product>

@@ -4,6 +4,7 @@ import { ProductService } from 'src/app/services/product/products.service';
 import { Category } from 'src/app/models/Category';
 import { VehicleBrand } from 'src/app/models/VehicleBrands';
 import { VehicleModel } from 'src/app/models/VehicleModel';
+import { consolelog } from 'src/app/helpers/funtions';
 
 @Component({
   selector: 'app-products',
@@ -17,6 +18,7 @@ export class ProductsComponent implements OnInit {
   categories: Category[];
   vehicle_brands: VehicleBrand[];
   vehicle_models: VehicleModel[];
+  selectedProduct: ProductCard;
 
   constructor(
     private productService: ProductService,
@@ -62,4 +64,7 @@ export class ProductsComponent implements OnInit {
     this.filterable_products = productsFiltered;
   }
 
+  public eventProductSelected(product: ProductCard){
+    this.selectedProduct = product;
+  }
 }

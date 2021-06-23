@@ -1,0 +1,32 @@
+.container-query {
+  display: inline-flex;
+  text-align: center;
+}
+
+.button-option {
+  align-items: center;
+}
+
+.button-mail {
+  background-color: #ffffff;
+  color: #000000;
+}
+.button-mail:hover {
+  background-color: #c5c5c5;
+  color: #000000;
+}
+
+.button-whatsapp {
+  border-color: #26af3b !important;
+  background-color: #26af3b !important;
+}
+.button-whatsapp:hover {
+  border-color: #1e8c2e !important;
+  background-color: #1e8c2e !important;
+}
+
+@media screen and (max-width: 600px) {
+  .container-query {
+    display: block;
+  }
+}

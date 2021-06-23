@@ -1,0 +1,20 @@
+<p-dialog header="¿Como quiere realizar su consulta?" [style]="{'max-width': '600px', 'width': '90vw', 'border-radius': '6px !important'}" [(visible)]="display">
+
+  <div class="container-query">
+
+      <div class="p-m-2 p-text-center">
+        <button class="p-d-flex btn button-whatsapp rounded-lg text-white no-decoration button-option" (click)="consultByWhatsApp()">
+          <img src="../../../../../assets/images/icons/whatsapp.png" width="20" class="p-mr-2" />
+          WhatsApp
+        </button>
+      </div>
+
+      <div class="p-m-2 p-mt-6 p-text-center">
+        <button class="p-d-flex btn button-mail rounded-lg bg-white no-decoration text-gray button-option" (click)="consultByMail()">
+          <img src="../../../../../assets/images/icons/mail.png" width="20" class="p-mr-2" />
+          Correo electrónico
+        </button>
+      </div>
+
+  </div>
+</p-dialog>

@@ -11,7 +11,7 @@
 
       <div class="p-p-3" *ngIf="filterable_products && filterable_products.length > 0">
         <div class="p-d-inline-flex" *ngFor="let product of filterable_products">
-          <app-card-product [product]="product"></app-card-product>
+          <app-card-product [product]="product" (eventProductSelected)="eventProductSelected($event)"></app-card-product>
         </div>
       </div>
 
@@ -25,3 +25,5 @@
   </div>
   <p-scrollTop [threshold]="320"></p-scrollTop>
 </div>
+
+<app-query-product *ngIf="selectedProduct" [product]="selectedProduct"></app-query-product>

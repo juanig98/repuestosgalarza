@@ -32,8 +32,9 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 import { GalleriaModule } from 'primeng/galleria';
 import { GMapModule } from 'primeng/gmap';
+import { DialogModule } from 'primeng/dialog';
 const primeNgModules = [
-  GMapModule,
+  GMapModule, DialogModule,
   ListboxModule, CarouselModule, ScrollTopModule, ProgressSpinnerModule, ToastModule, GalleriaModule,
   InputTextModule, CheckboxModule, RadioButtonModule, DropdownModule, InputTextareaModule, TabViewModule,
   TabMenuModule, ButtonModule, MessageModule, PanelModule, CardModule, DividerModule, SlideMenuModule,
@@ -58,10 +59,11 @@ import { FilterProductsComponent } from './views/components/products/filter-prod
 import { CardProductComponent } from './views/components/products/card-product/card-product.component';
 import { NavbarComponent } from './views/components/includes/navbar/navbar.component';
 import { FooterComponent } from './views/components/includes/footer/footer.component';
+import { QueryProductComponent } from './views/components/products/query-product/query-product.component';
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, AboutComponent, ProductsComponent, FilterProductsComponent, CardProductComponent, NavbarComponent, FooterComponent, ProductComponent, ContactComponent,
+    AppComponent, HomeComponent, AboutComponent, ProductsComponent, FilterProductsComponent, CardProductComponent, NavbarComponent, FooterComponent, ProductComponent, ContactComponent, QueryProductComponent,
   ],
   imports: [
     ...angularModules,

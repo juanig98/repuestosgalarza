@@ -14,6 +14,7 @@ import { ProductService } from 'src/app/services/product/products.service';
 export class ProductComponent implements OnInit {
 
   item: string;
+  query_product: boolean = false;
   product: ProductCard;
   images: any[];
   responsiveOptions: any[] = [
@@ -66,7 +67,6 @@ export class ProductComponent implements OnInit {
     this.productService.getImages(id).subscribe(
       response => {
         this.images = response;
-        consolelog(this.images)
       }
     )
   }
@@ -74,5 +74,10 @@ export class ProductComponent implements OnInit {
   public sourceImage(image: string) {
     let file_name = (image) ? image : "no_image.png";
     return `${route_server}/storage/uploads/products/${file_name}`;
+  }
+
+  public queryProduct(){
+    this.query_product = true;
+
   }
 }

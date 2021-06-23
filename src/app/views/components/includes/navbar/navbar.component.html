@@ -18,15 +18,17 @@
   </div>
 
   <div class="display-web p-text-center">
-    <button pButton type="button" title="Comunicate por whatsapp" class="p-mr-1 p-button-rounded icon-navbar whatsapp">
+    <a pButton target="_blank" [href]="whatsapp" type="button" title="Comunicate por whatsapp"
+      class="p-mr-1 p-button-rounded icon-navbar whatsapp">
       <img src="../assets/images/icons/whatsapp.png">
-    </button>
-    <button pButton type="button" title="Llámanos" class="p-mr-1 p-button-rounded icon-navbar phone">
+    </a>
+    <a pButton [href]="teltelephone" type="button" title="Llámanos" class="p-mr-1 p-button-rounded icon-navbar phone">
       <img src="../assets/images/icons/phone.png">
-    </button>
-    <button pButton type="button" title="Acércate a nuestra sucursal" class="p-mr-1 p-button-rounded icon-navbar location">
+    </a>
+    <a pButton target="_blank" [href]="location" type="button" title="Acércate a nuestra sucursal"
+      class="p-mr-1 p-button-rounded icon-navbar location">
       <img src="../assets/images/icons/location.png">
-    </button>
+    </a>
   </div>
 
 </div>
