@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 // Angular
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -61,6 +62,7 @@ import { NavbarComponent } from './views/components/includes/navbar/navbar.compo
 import { FooterComponent } from './views/components/includes/footer/footer.component';
 import { QueryProductComponent } from './views/components/products/query-product/query-product.component';
 
+
 @NgModule({
   declarations: [
     AppComponent, HomeComponent, AboutComponent, ProductsComponent, FilterProductsComponent, CardProductComponent, NavbarComponent, FooterComponent, ProductComponent, ContactComponent, QueryProductComponent,
@@ -75,4 +77,5 @@ import { QueryProductComponent } from './views/components/products/query-product
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

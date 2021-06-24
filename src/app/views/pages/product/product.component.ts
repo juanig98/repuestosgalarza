@@ -38,7 +38,7 @@ export class ProductComponent implements OnInit {
     route: ActivatedRoute
   ) {
     this.item = route.snapshot.params.item;
-
+    
     if (this.router.getCurrentNavigation().extras.state) {
       this.product = this.router.getCurrentNavigation().extras.state.data;
     }

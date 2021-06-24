@@ -25,19 +25,21 @@
       </div>
 
       <div class="bg-white rounded-lg p-shadow-6 p-sm-12 p-md-6 p-lg-6">
-        <div class="p-p-5">
-          <div class="p-p-2">
-            <h2>
-              {{ product.title }}
-            </h2>
+        <div class="p-px-5 p-py-3">
+          <div class="p-py-4 p-block">
+            <div class="title-product">{{ product.title }} </div>
+            <small>{{ product.category_name }}</small>
           </div>
-          {{ product.description }}
-          <p>{{ product.product_code }}</p>
-          <p>{{ product.category_name }}</p>
+          <div class="description-product">
+            <p>Código: {{ product.product_code }}</p>
+            {{ product.description }}
+          </div>
         </div>
 
-        <button (click)="queryProduct()" class="btn bg-primary text-white rounded-lg"> <i
-            class="pi pi-shopping-cart p-mr-1"></i> Consultar</button>
+        <div class="p-my-3 p-px-5">
+          <button (click)="queryProduct()" class="btn bg-primary text-white rounded-lg"> <i
+              class="pi pi-shopping-cart p-mr-1"></i> Consultar</button>
+        </div>
       </div>
 
 
