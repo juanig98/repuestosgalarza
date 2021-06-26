@@ -38,7 +38,7 @@ export class ProductComponent implements OnInit {
     route: ActivatedRoute
   ) {
     this.item = route.snapshot.params.item;
-    
+
     if (this.router.getCurrentNavigation().extras.state) {
       this.product = this.router.getCurrentNavigation().extras.state.data;
     }
@@ -46,8 +46,10 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (this.product) {
-      this.setImages(this.product.id);
+    setTimeout(() => {
+
+      if (this.product) {
+        this.setImages(this.product.id);
 
     } else {
 
@@ -58,9 +60,10 @@ export class ProductComponent implements OnInit {
           this.setImages(this.product.id);
         },
         error => { redirect('productos') }
-      )
+        )
 
-    }
+      }
+    }, 1500)
   }
 
   private setImages(id: number) {
@@ -78,6 +81,5 @@ export class ProductComponent implements OnInit {
 
   public queryProduct(){
     this.query_product = true;
-
   }
 }
