@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { route_api, route_api_v2 } from 'src/app/config/routes';
 import { ProductCard } from 'src/app/models/ProductCard';
+import { ProductService } from 'src/app/services/product/products.service';
 
 @Component({
   selector: 'app-card-product',
@@ -14,25 +15,21 @@ export class CardProductComponent implements OnInit {
 
   @Output() eventProductSelected = new EventEmitter<ProductCard>();
 
-  constructor(private readonly router: Router) { }
+  constructor(
+    private productService: ProductService,
+    private readonly router: Router
+  ) { }
 
   ngOnInit(): void {
   }
-  public sourceImage(image: string) {
-    let file_name = (image) ? image : "no_image.png";
-    return `${route_api_v2}/storage/uploads/products/${file_name}`;
-  }
+  sourceProductImage = this.productService.sourceProductImage
 
-  public imgError(event: any) {
-    return `${route_api_v2}/storage/uploads/products/no_image.png`;
-  }
+  imgError(event: any) { return `${route_api_v2}/storage/uploads/products/no_image.png`; }
 
-  public viewProduct(product: ProductCard) {
+  viewProduct(product: ProductCard) {
     const navigationExtras: NavigationExtras = { state: { data: product } };
     this.router.navigate([`productos/${product.slug}`], navigationExtras);
   }
 
-  public queryProduct(product: ProductCard) {
-    this.eventProductSelected.emit(product);
-  }
+  queryProduct(product: ProductCard) { this.eventProductSelected.emit(product); }
 }

@@ -1,5 +1,5 @@
 <div class="content">
-  <div class="product-viewer" *ngIf="product">
+  <div class="product-viewer" *ngIf="product && !isLoading">
 
     <div class="p-grid">
 
@@ -45,10 +45,7 @@
 
     </div>
   </div>
-
-  <div style="height: 80%; text-align:center; padding:10%" class='event' *ngIf="!product">
-    <img src="/assets/images/icons/logo.png" class="loader" width="150" alt="" srcset="">
-  </div>
+  <app-loading *ngIf="!product || isLoading"></app-loading>
 </div>
 
 <app-query-product *ngIf="query_product" [product]="product"></app-query-product>

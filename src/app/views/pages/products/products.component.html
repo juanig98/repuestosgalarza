@@ -9,7 +9,11 @@
         </app-filter-products>
       </div>
 
-      <div class="p-p-3" *ngIf="filterable_products && filterable_products.length > 0">
+      <div class="p-m-auto">
+        <app-loading *ngIf="isLoading"></app-loading>
+      </div>
+
+      <div class="p-p-3" *ngIf="filterable_products && filterable_products.length > 0 && !isLoading">
         <div class="p-d-inline-flex" *ngFor="let product of filterable_products">
           <app-card-product [product]="product" (eventProductSelected)="eventProductSelected($event)"></app-card-product>
         </div>

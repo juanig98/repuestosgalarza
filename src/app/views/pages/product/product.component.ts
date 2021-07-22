@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/services/product/products.service';
 })
 export class ProductComponent implements OnInit {
 
+  isLoading: boolean = false;
   item: string;
   query_product: boolean = false;
   product!: ProductCard;
@@ -34,25 +35,23 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
 
-    setTimeout(() => {
+    if (this.product) {
+      this.setImages(this.product.id);
+      this.isLoading = false;
+    } else {
+      this.productService.getProductBySlug(this.item).subscribe(
+        response => {
+          if (!response) this.router.navigate(['/productos'])
+          this.product = response;
+          this.setImages(this.product.id);
+          this.isLoading = false;
+        },
+        error => { this.router.navigate(['/productos']) }
+      )
 
-      if (this.product) {
-        this.setImages(this.product.id);
-
-      } else {
-
-        this.productService.getProductBySlug(this.item).subscribe(
-          response => {
-            if (!response) this.router.navigate(['/productos'])
-            this.product = response;
-            this.setImages(this.product.id);
-          },
-          error => { this.router.navigate(['/productos']) }
-        )
-
-      }
-    }, 1500)
+    }
   }
 
   private setImages(id: number) {

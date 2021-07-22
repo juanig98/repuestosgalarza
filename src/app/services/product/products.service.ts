@@ -36,10 +36,7 @@ export class ProductService {
     return this.http.get<Image[]>(`${route_api}/products/images/${id}`, headers)
   }
 
-  sourceProductImage(product: ProductCard): string {
-    if (product.file_name == null) return `${route_api}/storage/images/no_image.png`
-    return `${route_api_v2}/storage/images/${product.file_name}`
-  }
+  sourceProductImage(product: ProductCard): string { return (product.file_name == null) ? `${route_api}/storage/images/no_image.png` : `${route_api_v2}/storage/uploads/products/${product.file_name}` }
   getRouteToProduct(product: ProductCard) { return `/productos/${product.slug}`; }
 
 }

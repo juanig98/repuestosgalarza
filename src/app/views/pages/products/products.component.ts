@@ -4,6 +4,7 @@ import { ProductService } from 'src/app/services/product/products.service';
 import { Category } from 'src/app/models/Category';
 import { VehicleBrand } from 'src/app/models/VehicleBrands';
 import { VehicleModel } from 'src/app/models/VehicleModel';
+import { devConsoleLog } from 'src/app/helpers/funtions';
 
 @Component({
   selector: 'app-products',
@@ -18,6 +19,7 @@ export class ProductsComponent implements OnInit {
   vehicle_brands!: VehicleBrand[];
   vehicle_models!: VehicleModel[];
   selectedProduct!: ProductCard;
+  isLoading: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -54,16 +56,17 @@ export class ProductsComponent implements OnInit {
           if (add) this.vehicle_models.push(vehicle_model)
         });
       },
-      error => {
-      }
+      error => { devConsoleLog(error) }
     )
   }
 
-  public filterProducts(productsFiltered: ProductCard[]) {
+  filterProducts(productsFiltered: ProductCard[]) {
+    this.isLoading = true;
     this.filterable_products = productsFiltered;
+    setTimeout(() => { this.isLoading = false; }, 800)
   }
 
-  public eventProductSelected(product: ProductCard){
+  eventProductSelected(product: ProductCard) {
     this.selectedProduct = product;
   }
 }

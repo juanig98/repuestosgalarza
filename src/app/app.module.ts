@@ -56,14 +56,15 @@ import { ContactComponent } from './views/pages/contact/contact.component';
 // Components
 import { FilterProductsComponent } from './views/components/products/filter-products/filter-products.component';
 import { CardProductComponent } from './views/components/products/card-product/card-product.component';
-import { NavbarComponent } from './views/components/includes/navbar/navbar.component';
-import { FooterComponent } from './views/components/includes/footer/footer.component';
+import { NavbarComponent } from './views/components/common/navbar/navbar.component';
+import { FooterComponent } from './views/components/common/footer/footer.component';
 import { QueryProductComponent } from './views/components/products/query-product/query-product.component';
+import { LoadingComponent } from './views/components/common/loading/loading.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, AboutComponent, ProductsComponent, FilterProductsComponent, CardProductComponent, NavbarComponent, FooterComponent, ProductComponent, ContactComponent, QueryProductComponent,
+    AppComponent, HomeComponent, AboutComponent, ProductsComponent, FilterProductsComponent, CardProductComponent, NavbarComponent, FooterComponent, ProductComponent, ContactComponent, QueryProductComponent, LoadingComponent,
   ],
   imports: [
     ...angularModules,
