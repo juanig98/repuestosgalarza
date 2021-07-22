@@ -1,11 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { info } from 'src/app/config/app';
-import { route_server, route_web } from 'src/app/config/routes';
-import { consolelog } from 'src/app/helpers/funtions';
-import { Product } from 'src/app/models/Product';
+import { route_api, route_api_v2 } from 'src/app/config/routes';
 import { ProductCard } from 'src/app/models/ProductCard';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-card-product',
@@ -24,11 +20,11 @@ export class CardProductComponent implements OnInit {
   }
   public sourceImage(image: string) {
     let file_name = (image) ? image : "no_image.png";
-    return `${route_server}/storage/uploads/products/${file_name}`;
+    return `${route_api_v2}/storage/uploads/products/${file_name}`;
   }
 
-  public imgError(event) {
-    return `${route_server}/storage/uploads/products/no_image.png`;
+  public imgError(event: any) {
+    return `${route_api_v2}/storage/uploads/products/no_image.png`;
   }
 
   public viewProduct(product: ProductCard) {

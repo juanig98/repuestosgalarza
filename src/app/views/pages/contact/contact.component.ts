@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import { consolelog } from 'src/app/helpers/funtions';
 import { ContactService } from 'src/app/services/contact/contact.service';
 
 @Component({

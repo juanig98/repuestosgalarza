@@ -41,8 +41,6 @@ const primeNgModules = [
   TabMenuModule, ButtonModule, MessageModule, PanelModule, CardModule, DividerModule, SlideMenuModule,
 ]
 
-// Other Modules
-const otherModules = []
 
 // Views
 import { AppRoutingModule } from './app-routing.module';
@@ -70,7 +68,6 @@ import { QueryProductComponent } from './views/components/products/query-product
   imports: [
     ...angularModules,
     ...primeNgModules,
-    ...otherModules,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-AR' },

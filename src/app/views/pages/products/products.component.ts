@@ -4,7 +4,6 @@ import { ProductService } from 'src/app/services/product/products.service';
 import { Category } from 'src/app/models/Category';
 import { VehicleBrand } from 'src/app/models/VehicleBrands';
 import { VehicleModel } from 'src/app/models/VehicleModel';
-import { consolelog } from 'src/app/helpers/funtions';
 
 @Component({
   selector: 'app-products',
@@ -13,12 +12,12 @@ import { consolelog } from 'src/app/helpers/funtions';
 })
 export class ProductsComponent implements OnInit {
 
-  products: ProductCard[];
-  filterable_products: ProductCard[];
-  categories: Category[];
-  vehicle_brands: VehicleBrand[];
-  vehicle_models: VehicleModel[];
-  selectedProduct: ProductCard;
+  products!: ProductCard[];
+  filterable_products!: ProductCard[];
+  categories!: Category[];
+  vehicle_brands!: VehicleBrand[];
+  vehicle_models!: VehicleModel[];
+  selectedProduct!: ProductCard;
 
   constructor(
     private productService: ProductService,

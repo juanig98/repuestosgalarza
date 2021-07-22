@@ -1,9 +1,7 @@
 
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { consolelog } from 'src/app/helpers/funtions';
 import { Category } from 'src/app/models/Category';
 import { ProductCard } from 'src/app/models/ProductCard';
-import { CategoryService } from 'src/app/services/category/category.service';
 import { VehicleModel } from 'src/app/models/VehicleModel';
 import { VehicleBrand } from 'src/app/models/VehicleBrands';
 
@@ -15,17 +13,17 @@ import { VehicleBrand } from 'src/app/models/VehicleBrands';
 })
 export class FilterProductsComponent implements OnInit {
 
-  categorySelected: Category;
-  vehicleBrandSelected: VehicleBrand;
-  vehicleModelSelected: VehicleModel;
+  categorySelected!: Category | undefined;
+  vehicleBrandSelected!: VehicleBrand | undefined;
+  vehicleModelSelected!: VehicleModel | undefined;
   search: string = "";
 
-  filterable_vehicle_models: VehicleModel[];
-  @Input() categories: Category[];
-  @Input() vehicle_brands: VehicleBrand[];
-  @Input() vehicle_models: VehicleModel[];
-  @Input() filterable_products: ProductCard[];
-  @Input() products: ProductCard[];
+  filterable_vehicle_models!: VehicleModel[];
+  @Input() categories!: Category[];
+  @Input() vehicle_brands!: VehicleBrand[];
+  @Input() vehicle_models!: VehicleModel[];
+  @Input() filterable_products!: ProductCard[];
+  @Input() products!: ProductCard[];
   @Output() productsFiltered = new EventEmitter<ProductCard[]>();
 
   constructor() { }
@@ -35,19 +33,20 @@ export class FilterProductsComponent implements OnInit {
   private emit() { this.productsFiltered.emit(this.filterable_products); }
 
   public deleteFilterVehicle() {
-    this.vehicleBrandSelected = null;
-    this.vehicleModelSelected = null;
+    this.vehicleBrandSelected = undefined;
+    this.vehicleModelSelected = undefined;
     this.filter()
   }
-  public deleteFilterCategory() { this.categorySelected = null; this.filter() }
+  public deleteFilterCategory() { this.categorySelected = undefined; this.filter() }
 
-  public onSearchChange(value: string) {
+  public onSearchChange(event: any) {
+    let value = event.value
     this.search = value.toLowerCase();
     this.filter();
   }
 
   public onBrandSelected() {
-    this.vehicleModelSelected = null;
+    this.vehicleModelSelected = undefined;
     this.filter()
   }
 
@@ -56,7 +55,8 @@ export class FilterProductsComponent implements OnInit {
 
     if (this.vehicleBrandSelected) {
       // Filtro los productos con esa marca
-      let product_with_that_brand = this.products.filter(p => p.vehicle_brand_id == this.vehicleBrandSelected.id);
+
+      let product_with_that_brand = this.products.filter(p => p.vehicle_brand_id == this.vehicleBrandSelected?.id);
       this.filterable_vehicle_models = [];
 
       product_with_that_brand.map(p => {
@@ -66,14 +66,14 @@ export class FilterProductsComponent implements OnInit {
         if (add) this.filterable_vehicle_models.push(vehicle_model)
       });
 
-      filtered_products = filtered_products.filter(p => p.vehicle_brand_id == this.vehicleBrandSelected.id)
+      filtered_products = filtered_products.filter(p => p.vehicle_brand_id == this.vehicleBrandSelected?.id)
     }
 
     if (this.vehicleModelSelected) {
-      filtered_products = filtered_products.filter(p => p.vehicle_model_id == this.vehicleModelSelected.id)
+      filtered_products = filtered_products.filter(p => p.vehicle_model_id == this.vehicleModelSelected?.id)
     }
     if (this.categorySelected)
-      filtered_products = filtered_products.filter(p => p.category_id == this.categorySelected.id)
+      filtered_products = filtered_products.filter(p => p.category_id == this.categorySelected?.id)
     if (this.search.length > 0)
       filtered_products = filtered_products.filter(p => ((p.title).toLowerCase()).includes(this.search))
 

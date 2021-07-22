@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { route_server } from 'src/app/config/routes';
+import { route_api, route_api_v2 } from 'src/app/config/routes';
 import { ProductCard } from 'src/app/models/ProductCard';
 import { BannerService } from 'src/app/services/banner/banner.service';
 import { ProductService } from 'src/app/services/product/products.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Card } from 'src/app/models/Card';
+import { Banner } from 'src/app/models/Banner';
 
 @Component({
   selector: 'app-home',
@@ -12,18 +14,19 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class HomeComponent implements OnInit {
 
-  banners = [];
-  featured: ProductCard[];
-  logos = ["toyota", "hyundai", "kia", "chevrolet", "honda", "landrover", "nissan", "ford", "subaru", "lexus", "audi", "bmw"];
-  cards = [
+  banners!: Banner[];
+  featured!: ProductCard[];
+  logos: string[] = ["toyota", "hyundai", "kia", "chevrolet", "honda", "landrover", "nissan", "ford", "subaru", "lexus", "audi", "bmw"];
+  cards: Card[] = [
     { title: "Calidad", description: "Productos de calidad y durabilidad.", image: "calidad" },
     { title: "Envíos", description: "Realizamos envíos a todo el país.", image: "envio" },
     { title: "Experiencia", description: "Años de experiencia en el rubro.", image: "experiencia" },
     { title: "Atención", description: "Contamos con personal capacitado y motivado.", image: "atencion" }
   ]
 
-  alt = "Repuestos - Galarza - Repuestos importados"
-  responsiveOptions;
+  alt: string = "Repuestos - Galarza - Repuestos importados"
+  responsiveOptions: any[] = [];
+
   constructor(
     private bannerService: BannerService,
     private productService: ProductService,
@@ -31,47 +34,24 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.responsiveOptions = [
-      {
-        breakpoint: '1024px',
-        numVisible: 3,
-        numScroll: 3
-      },
-      {
-        breakpoint: '768px',
-        numVisible: 2,
-        numScroll: 2
-      },
-      {
-        breakpoint: '560px',
-        numVisible: 1,
-        numScroll: 1
-      }
-    ];
-
+    this.responsiveOptions =
+      [{ breakpoint: '1024px', numVisible: 3, numScroll: 3 },
+      { breakpoint: '768px', numVisible: 2, numScroll: 2 },
+      { breakpoint: '560px', numVisible: 1, numScroll: 1 }];
 
     this.bannerService.getAll().subscribe(response => { this.banners = response; }, error => { })
     this.productService.getFeatured().subscribe(response => { this.featured = response; }, error => { })
-
-
   }
 
-  public searchImage(item) {
-    if (item.image == null) return `${route_server}/storage/images/no_image.png`
-    return `${route_server}/storage/images/${item.image}`
-  }
+  searchCard = this.bannerService.sourceCard
+  sourceProductImage = this.productService.sourceProductImage
+  sourceBannerImage = this.bannerService.sourceBannerImage
+  getRoute = this.productService.getRouteToProduct
 
-  public sourceImageProduct(filename: string) {
-    return `${route_server}/storage/uploads/products/${filename}`;
-  }
-  public getRoute(product: ProductCard) {
-    return `/productos/${product.slug}`;
-  }
-  public searchLogo(item) { return `../../../../assets/images/logos/${item}.png` }
 
-  public searchCard(card) { return `${route_server}storage/images/icons/${card.image}.png` }
+  searchLogo(item: string) { return `/assets/images/logos/${item}.png` }
 
-  toHtml(htmlTextWithStyle) {
+  toHtml(htmlTextWithStyle: string) {
     return this.sanitizer.bypassSecurityTrustHtml(htmlTextWithStyle);
-}
+  }
 }

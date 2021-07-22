@@ -10,17 +10,14 @@ import { route_api } from 'src/app/config/routes';
 })
 export class CategoryService {
 
-
-  private route = route_api + 'categories'
-
   constructor(
     private http: HttpClient,
   ) { }
 
   public getCategory(id: number): Observable<Category> {
-    return this.http.get<Category>(`${this.route}/${id}`, headers);
+    return this.http.get<Category>(`${route_api}/categories/${id}`, headers);
   }
   public getAllCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(`${this.route}-products`, headers);
+    return this.http.get<Category[]>(`${route_api}/categories-products`, headers);
   }
 }

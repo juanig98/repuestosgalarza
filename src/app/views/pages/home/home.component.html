@@ -3,7 +3,7 @@
     [showIndicators]="false">
     <ng-template let-item pTemplate="item">
       <div class="cont-banner-image">
-        <img [src]="searchImage(item)" width="100" height="360" [alt]="alt" class="banner-image">
+        <img [src]="sourceBannerImage(item)" width="100" height="360" [alt]="alt" class="banner-image">
         <div class="banner-text" [innerHTML]="toHtml(item.title)"></div>
       </div>
     </ng-template>
@@ -20,7 +20,7 @@
       <div class="product-item" [routerLink]="getRoute(product)">
         <div class="product-item-content">
           <div class="p-mb-3">
-            <img [src]="sourceImageProduct(product.file_name)" width="50" [alt]="product.title" class="product-image" />
+            <img [src]="sourceProductImage(product)" width="50" [alt]="product.title" class="product-image" />
           </div>
           <div>
             <div class="p-text-center">
@@ -54,7 +54,7 @@
 </div>
 
 <div class="last-container">
-  <p-carousel [value]="logos" [numVisible]="5" [numScroll]="2" [autoplayInterval]="2000" circular="true"
+  <p-carousel [value]="logos" [numVisible]="5" [numScroll]="2" [autoplayInterval]="2000" [circular]="true"
     [showNavigators]="false" [showIndicators]="false">
     <ng-template let-item pTemplate="item">
       <div class="p-m-4">

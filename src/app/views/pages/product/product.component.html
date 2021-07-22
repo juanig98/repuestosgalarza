@@ -6,7 +6,7 @@
       <div class="p-sm-12 p-md-6 p-lg-6 p-pr-3">
         <div class="p-shadow-16 bg-gallery  rounded-lg" style="min-height: 70vh;">
 
-          <p-galleria [(value)]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5" [circular]="true"
+          <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5" [circular]="true"
             [showItemNavigators]="false">
             <ng-template pTemplate="item" let-item>
               <div class="img-viewer">
@@ -37,7 +37,7 @@
         </div>
 
         <div class="p-my-3 p-px-5">
-          <button (click)="queryProduct()" class="btn bg-primary text-white rounded-lg"> <i
+          <button (click)="query_product = true" class="btn bg-primary text-white rounded-lg"> <i
               class="pi pi-shopping-cart p-mr-1"></i> Consultar</button>
         </div>
       </div>
@@ -46,8 +46,8 @@
     </div>
   </div>
 
-  <div style="height: 80%; text-align:center; padding:10%"class='event' *ngIf="!product">
-    <img src="../../../../assets/images/icons/logo.png" class="loader" width="150" alt="" srcset="">
+  <div style="height: 80%; text-align:center; padding:10%" class='event' *ngIf="!product">
+    <img src="/assets/images/icons/logo.png" class="loader" width="150" alt="" srcset="">
   </div>
 </div>
 

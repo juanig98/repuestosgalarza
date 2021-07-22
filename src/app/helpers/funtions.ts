@@ -1,8 +1,5 @@
 import { environment } from "src/environments/environment";
 
-export function consolelog(exp) {
-  if (environment) console.log(exp)
-}
+export function devConsoleLog(...string: any) { if (!environment.production) console.log(string) };
 
-export const redirect = function (to, open = false) { (open) ? window.open(to) : window.location.href = to; }
 
