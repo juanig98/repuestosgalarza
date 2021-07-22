@@ -21,6 +21,6 @@ export class BannerService {
     return `${route_api_v2}/storage/images/icons/${card.image}.png`
   }
   sourceBannerImage(banner: Banner): string {
-    return `${route_api_v2}/storage/images/icons/${banner.image}.png`
+    return `${route_api_v2}/storage/images${banner.image}`
   }
 }

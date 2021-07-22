@@ -71,22 +71,14 @@
   box-shadow: 0 0 0 0.2rem #e4322d;
 }
 
-.p-slidemenu .p-slidemenu-overlay {
-  left: 0 !important;
-}
-
-::ng-deep.ng-trigger.ng-trigger-overlayAnimation.ng-tns-c62-0.p-slidemenu.p-component.p-slidemenu-overlay.ng-star-inserted {
-  left: 20% !important;
-}
-
 .menu-container {
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1220px) {
   ::ng-deep .p-slidemenu {
-    width: 60% !important;
+    width: 50vw !important;
   }
 
   .logo-img {
@@ -95,14 +87,16 @@
   .menu-container {
     width: 100%;
   }
+
   .btn-bars {
-    width: 75%;
+    width: 50vw;
   }
 
   .display-mobile {
     visibility: visible;
     display: block;
   }
+
   .display-web {
     display: none;
     visibility: hidden;
