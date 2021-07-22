@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { route_server } from 'src/app/config/routes';
+import { route_api, route_server } from 'src/app/config/routes';
 import { consolelog, redirect } from 'src/app/helpers/funtions';
 import { Image } from 'src/app/models/Image';
 import { Product } from 'src/app/models/Product';
@@ -76,7 +76,7 @@ export class ProductComponent implements OnInit {
 
   public sourceImage(image: string) {
     let file_name = (image) ? image : "no_image.png";
-    return `${route_server}/storage/uploads/products/${file_name}`;
+    return `${route_api}/api/v1/storage/uploads/products/${file_name}`;
   }
 
   public queryProduct(){

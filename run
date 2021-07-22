@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm -rf /var/www/webapp
+cp -r dist/webapp /var/www/webapp
