@@ -17,11 +17,12 @@ const routes: Routes = [
   },
   { path: 'sobre-nosotros', component: AboutComponent },
   { path: 'contacto', component: ContactComponent },
-
+  { path: "login", pathMatch: "full", redirectTo: "https//empresa.repuestosgalarza.com.ar/login" },
+  { path: "**", pathMatch: "full", redirectTo: "home" },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
