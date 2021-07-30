@@ -4,34 +4,35 @@
   background-color: white;
   border-radius: 35px;
   border-radius: 35px;
+  margin: 0 auto;
+  max-width: 1460px;
 }
 
 .whatsapp {
   border-color: #26af3b !important;
   background-color: #26af3b !important;
 }
-.whatsapp:hover{
+.whatsapp:hover {
   border-color: #1e8c2e !important;
   background-color: #1e8c2e !important;
 }
 
-.location{
+.location {
   border-color: $secondary-color;
   background-color: $secondary-color;
 }
-.location:hover{
+.location:hover {
   border-color: #aa2722;
   background-color: #aa2722;
 }
 
-.phone{
+.phone {
   border-color: $primary-color-light;
   background-color: $primary-color-light;
 }
-.phone:hover{
+.phone:hover {
   border-color: #192568;
   background-color: #192568;
-
 }
 .icon-navbar {
   text-align: center;
@@ -76,30 +77,50 @@
   margin-right: auto !important;
 }
 
+.display-mobile-sm {
+  visibility: hidden;
+  display: none;
+}
 @media screen and (max-width: 1220px) {
-  ::ng-deep .p-slidemenu {
-    width: 50vw !important;
+  .display-mobile {
+    visibility: visible;
+    display: block;
   }
-
+  .display-web {
+    display: none;
+    visibility: hidden;
+  }
+  .btn-bars {
+    width: 30vw;
+  }
+  ::ng-deep .p-slidemenu {
+    width: 30vw !important;
+  }
+}
+@media screen and (max-width: 770px) {
+  .navbar {
+    max-width: fit-content;
+  }
+  .display-web-lg {
+    display: none;
+    visibility: hidden;
+  }
+  .display-mobile-sm {
+    visibility: visible;
+    display: inline-flex;
+    margin: auto;
+  }
   .logo-img {
     width: 100%;
   }
   .menu-container {
     width: 100%;
   }
-
+  ::ng-deep .p-slidemenu {
+    width: 80vw !important;
+  }
   .btn-bars {
-    width: 50vw;
-  }
-
-  .display-mobile {
-    visibility: visible;
-    display: block;
-  }
-
-  .display-web {
-    display: none;
-    visibility: hidden;
+    width: 80vw;
   }
 }
 
@@ -110,4 +131,11 @@
 ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link :focus {
   border-color: $primary-color;
   color: $primary-color;
+}
+
+::ng-deep .p-slidemenu .p-menuitem-link .p-menuitem-text {
+  margin: auto;
+}
+::ng-deep .p-slidemenu .p-slidemenu-rootlist {
+  width: 100% !important;
 }

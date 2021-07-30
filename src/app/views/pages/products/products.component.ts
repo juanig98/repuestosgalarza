@@ -60,13 +60,12 @@ export class ProductsComponent implements OnInit {
     )
   }
 
+  eventProductSelected(product: ProductCard) { this.selectedProduct = product; }
+
   filterProducts(productsFiltered: ProductCard[]) {
     this.isLoading = true;
     this.filterable_products = productsFiltered;
-    setTimeout(() => { this.isLoading = false; }, 800)
+    setTimeout(() => { this.isLoading = false; }, 450)
   }
 
-  eventProductSelected(product: ProductCard) {
-    this.selectedProduct = product;
-  }
 }

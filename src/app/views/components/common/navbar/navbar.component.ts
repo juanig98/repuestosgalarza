@@ -8,12 +8,12 @@ import { info } from 'src/app/config/app';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  items: MenuItem[];
+  items!: MenuItem[];
   location = info.location_maps;
   telephone = info.telephone;
   teltelephone = "tel:" + info.telephone;
   whatsapp = `https://wa.me/${info.phone}?text=${encodeURI('Hola, me comunico por')}`;
-  activeItem: MenuItem;
+  activeItem!: MenuItem;
 
   ngOnInit() {
     this.items = [

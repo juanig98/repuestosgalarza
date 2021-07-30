@@ -9,17 +9,18 @@
         </app-filter-products>
       </div>
 
-      <div class="p-m-auto">
-        <app-loading *ngIf="isLoading"></app-loading>
+      <div class="p-m-auto" *ngIf="isLoading">
+        <app-loading></app-loading>
       </div>
 
-      <div class="p-p-3" *ngIf="filterable_products && filterable_products.length > 0 && !isLoading">
+      <div class="p-p-3 p-ml-2" *ngIf="filterable_products && filterable_products.length > 0 && !isLoading">
         <div class="p-d-inline-flex" *ngFor="let product of filterable_products">
-          <app-card-product [product]="product" (eventProductSelected)="eventProductSelected($event)"></app-card-product>
+          <app-card-product [product]="product" (eventProductSelected)="eventProductSelected($event)">
+          </app-card-product>
         </div>
       </div>
 
-      <div *ngIf="filterable_products && filterable_products.length < 1" class="p-p-3 w-100 mh-100">
+      <div *ngIf="filterable_products && filterable_products.length < 1 && !isLoading" class="p-p-3 w-100 mh-100">
         <div class="p-shadow-4 p-py-3 p-pl-4 bg-white rounded-lg">
           <h3 class="text-primary">No hay coincidencias</h3>
         </div>
