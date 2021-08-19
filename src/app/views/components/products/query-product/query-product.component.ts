@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { info } from 'src/app/config/app';
 import { route_web } from 'src/app/config/routes';
-import { ProductCard } from 'src/app/models/ProductCard';
+import { Product } from 'src/app/models/Product';
 
 @Component({
   selector: 'app-query-product',
@@ -12,7 +12,7 @@ export class QueryProductComponent implements OnInit {
 
   display: boolean = false;
 
-  @Input() product: ProductCard;
+  @Input() product!: Product;
 
   constructor() { }
 

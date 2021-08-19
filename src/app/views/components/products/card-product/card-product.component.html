@@ -2,9 +2,11 @@
   <p-card [header]="product.title" [subheader]="product.product_code" class="product-card">
 
     <ng-template pTemplate="header">
-      <img alt="product.description" [src]="sourceProductImage(product)"
-        onerror="this.onerror=null;this.src='https://repuestosgalarza.com.ar/api/v2/storage/uploads/products/no_image.png';"
-        class="img-product">
+      <div (click)="viewProduct(product)">
+        <img alt="product.description" [src]="sourceProductImage(product)"
+          onerror="this.onerror=null;this.src='https://repuestosgalarza.com.ar/api/v2/storage/uploads/products/no_image.png';"
+          class="img-product">
+      </div>
     </ng-template>
 
     <ng-template pTemplate="body">

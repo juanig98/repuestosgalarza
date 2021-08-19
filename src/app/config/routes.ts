@@ -12,5 +12,5 @@ export const route_web = `/${window.location.origin}`;
 const protocol_api = (environment.development) ? 'https' : 'https';
 const dir_api = (environment.development) ? 'repuestosgalarza.local' : 'repuestosgalarza.com.ar';
 const port_api = (environment.development) ? '' : '';
-export const route_api = `${protocol_api}://${dir_api}:${port_api}/api/v1`;
-export const route_api_v2 = `${protocol_api}://${dir_api}:${port_api}/api/v2`;
+export const route_api = `${protocol_api}://${dir_api}${port_api ? ":" + port_api : ""}/api/v1`;
+export const route_api_v2 = `${protocol_api}://${dir_api}${port_api ? ":" + port_api : ""}/api/v2`;

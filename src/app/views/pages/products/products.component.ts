@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductCard } from 'src/app/models/ProductCard';
+import { Product } from 'src/app/models/Product';
 import { ProductService } from 'src/app/services/product/products.service';
 import { Category } from 'src/app/models/Category';
 import { VehicleBrand } from 'src/app/models/VehicleBrands';
@@ -13,12 +13,12 @@ import { devConsoleLog } from 'src/app/helpers/funtions';
 })
 export class ProductsComponent implements OnInit {
 
-  products!: ProductCard[];
-  filterable_products!: ProductCard[];
-  categories!: Category[];
-  vehicle_brands!: VehicleBrand[];
-  vehicle_models!: VehicleModel[];
-  selectedProduct!: ProductCard;
+  products: Product[] = [];
+  filterable_products: Product[] = [];
+  categories: Category[] = [];
+  vehicle_brands: VehicleBrand[] = [];
+  vehicle_models: VehicleModel[] = [];
+  selectedProduct!: Product;
   isLoading: boolean = false;
 
   constructor(
@@ -37,21 +37,21 @@ export class ProductsComponent implements OnInit {
 
         this.products.map(p => {
           let add = true;
-          let category = new Category(p.category_id, p.category_name);
+          let category = new Category(p.category.id, p.category.name);
           this.categories.map(a => { if (a.id == category.id) add = false })
           if (add) this.categories.push(category)
         });
 
         this.products.map(p => {
           let add = true;
-          let vehicle_brand = new VehicleBrand(p.vehicle_brand_id, p.vehicle_brand_name)
+          let vehicle_brand = new VehicleBrand(p.vehicle_brand.id, p.vehicle_brand.name)
           this.vehicle_brands.map(a => { if (a.id == vehicle_brand.id) add = false })
           if (add) this.vehicle_brands.push(vehicle_brand)
         });
 
         this.products.map(p => {
           let add = true;
-          let vehicle_model = new VehicleModel(p.vehicle_model_id, p.vehicle_model_name)
+          let vehicle_model = new VehicleModel(p.vehicle_model.id, p.vehicle_model.name)
           this.vehicle_models.map(a => { if (a.id == vehicle_model.id) add = false })
           if (add) this.vehicle_models.push(vehicle_model)
         });
@@ -60,9 +60,9 @@ export class ProductsComponent implements OnInit {
     )
   }
 
-  eventProductSelected(product: ProductCard) { this.selectedProduct = product; }
+  eventProductSelected(product: Product) { this.selectedProduct = product; }
 
-  filterProducts(productsFiltered: ProductCard[]) {
+  filterProducts(productsFiltered: Product[]) {
     this.isLoading = true;
     this.filterable_products = productsFiltered;
     setTimeout(() => { this.isLoading = false; }, 450)

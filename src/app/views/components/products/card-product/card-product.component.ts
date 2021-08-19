@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { route_api, route_api_v2 } from 'src/app/config/routes';
-import { ProductCard } from 'src/app/models/ProductCard';
+import { Product } from 'src/app/models/Product';
 import { ProductService } from 'src/app/services/product/products.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class CardProductComponent implements OnInit {
 
   @Input() product: any;
 
-  @Output() eventProductSelected = new EventEmitter<ProductCard>();
+  @Output() eventProductSelected = new EventEmitter<Product>();
 
   constructor(
     private productService: ProductService,
@@ -26,10 +26,10 @@ export class CardProductComponent implements OnInit {
 
   imgError(event: any) { return `${route_api_v2}/storage/uploads/products/no_image.png`; }
 
-  viewProduct(product: ProductCard) {
+  viewProduct(product: Product) {
     const navigationExtras: NavigationExtras = { state: { data: product } };
     this.router.navigate([`productos/${product.slug}`], navigationExtras);
   }
 
-  queryProduct(product: ProductCard) { this.eventProductSelected.emit(product); }
+  queryProduct(product: Product) { this.eventProductSelected.emit(product); }
 }

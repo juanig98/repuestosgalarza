@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { route_api } from 'src/app/config/routes';
-import { ProductCard } from 'src/app/models/ProductCard';
+import { Product } from 'src/app/models/Product';
 import { ProductService } from 'src/app/services/product/products.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class ProductComponent implements OnInit {
   isLoading: boolean = false;
   item: string;
   query_product: boolean = false;
-  product!: ProductCard;
+  product!: Product;
   images: any[] = [];
   responsiveOptions: any[] = [
     { breakpoint: '1024px', numVisible: 5 },

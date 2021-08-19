@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { route_api, route_api_v2 } from 'src/app/config/routes';
-import { ProductCard } from 'src/app/models/ProductCard';
 import { BannerService } from 'src/app/services/banner/banner.service';
 import { ProductService } from 'src/app/services/product/products.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Card } from 'src/app/models/Card';
 import { Banner } from 'src/app/models/Banner';
+import { Product } from 'src/app/models/Product';
 
 @Component({
   selector: 'app-home',
@@ -14,8 +13,8 @@ import { Banner } from 'src/app/models/Banner';
 })
 export class HomeComponent implements OnInit {
 
-  banners!: Banner[];
-  featured!: ProductCard[];
+  banners: Banner[] = [];
+  featured: Product[] = [];
   logos: string[] = ["toyota", "hyundai", "kia", "chevrolet", "honda", "landrover", "nissan", "ford", "subaru", "lexus", "audi", "bmw"];
   cards: Card[] = [
     { title: "Calidad", description: "Productos de calidad y durabilidad.", image: "calidad" },
