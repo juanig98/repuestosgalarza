@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { config } from 'rxjs';
-import { info } from 'src/app/config/app';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-footer',
@@ -9,17 +9,17 @@ import { info } from 'src/app/config/app';
 })
 export class FooterComponent implements OnInit {
 
-  location_maps = info.location_maps;
-  telephone = info.telephone;
-  teltelephone = "tel:" + info.telephone;
-  phone = + info.phone;
-  telphone = "tel:" + info.phone;
-  bussiness_name = info.bussiness_name;
-  email = info.email;
-  mailto = "mailto:" + info.email;
-  address = info.address;
+  location_maps = environment.info_commerce.location_maps;
+  telephone = environment.info_commerce.telephone;
+  teltelephone = "tel:" + environment.info_commerce.telephone;
+  phone = + environment.info_commerce.phone;
+  telphone = "tel:" + environment.info_commerce.phone;
+  bussiness_name = environment.info_commerce.bussiness_name;
+  email = environment.info_commerce.email;
+  mailto = "mailto:" + environment.info_commerce.email;
+  address = environment.info_commerce.address;
 
-  year: string;
+  year: string = "";
 
   constructor() { }
 

@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { route_api, route_api_v2 } from 'src/app/config/routes';
 import { Product } from 'src/app/models/Product';
 import { ProductService } from 'src/app/services/product/products.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-card-product',
@@ -24,7 +24,7 @@ export class CardProductComponent implements OnInit {
   }
   sourceProductImage = this.productService.sourceProductImage
 
-  imgError(event: any) { return `${route_api_v2}/storage/uploads/products/no_image.png`; }
+  imgError(event: any) { return `${environment.route_api}/storage/uploads/products/no_image.png`; }
 
   viewProduct(product: Product) {
     const navigationExtras: NavigationExtras = { state: { data: product } };

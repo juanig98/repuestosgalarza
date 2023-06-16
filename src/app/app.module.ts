@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 // Angular
 import { LOCALE_ID, NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -60,6 +60,7 @@ import { NavbarComponent } from './views/components/common/navbar/navbar.compone
 import { FooterComponent } from './views/components/common/footer/footer.component';
 import { QueryProductComponent } from './views/components/products/query-product/query-product.component';
 import { LoadingComponent } from './views/components/common/loading/loading.component';
+import { ApiPrefixInterceptor } from './interceptors/api-prefix.interceptor';
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import { LoadingComponent } from './views/components/common/loading/loading.comp
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-AR' },
+    { provide: HTTP_INTERCEPTORS, useClass: ApiPrefixInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { info } from 'src/app/config/app';
-import { route_web } from 'src/app/config/routes';
 import { Product } from 'src/app/models/Product';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-query-product',
@@ -21,16 +20,16 @@ export class QueryProductComponent implements OnInit {
   }
 
   public consultByWhatsApp() {
-    const text = `Hola, te consulto por el siguiente producto: \n\n ${route_web}/productos/${this.product.slug}`;
+    const text = `Hola, te consulto por el siguiente producto: \n\n ${window.location.origin}/productos/${this.product.slug}`;
     let a = document.createElement('a');
     a.target = "_blank";
-    a.href = `https://wa.me/${info.phone}?text=${encodeURIComponent(text)}`;
+    a.href = `https://wa.me/${environment.info_commerce.phone}?text=${encodeURIComponent(text)}`;
     a.click();
     this.display = false;
   }
 
   public consultByMail() {
-    const text = `Hola, te consulto por el siguiente producto: \n\n ${route_web}/productos/${this.product.slug}`;
+    const text = `Hola, te consulto por el siguiente producto: \n\n ${window.location.origin}/productos/${this.product.slug}`;
     let a = document.createElement('a');
     a.target = "_blank";
     a.href = `mailto:ventas@repuestosgalarza.com.ar?subject=Consulta&body=${encodeURIComponent(text)}`
