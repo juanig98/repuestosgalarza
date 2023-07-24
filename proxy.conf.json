@@ -1,0 +1,7 @@
+{
+    "/api": {
+        "target": "https://repuestosgalarza.com.ar/api/v1/",
+        "secure": true,
+        "changeOrigin": true
+    }
+}
